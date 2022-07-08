@@ -1,1 +1,3 @@
-# GMTK-2022-Game-Jam-Group-1
+# GMTK-2022-Game-Jam-Kojima-boyz
+
+Our collaborate repo for a 2d game!
