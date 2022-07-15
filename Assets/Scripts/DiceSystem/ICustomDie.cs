@@ -12,7 +12,7 @@ namespace DiceSystem
 
         event EventHandler OnDieRoll;
         event EventHandler OnDieRollVFX;
-        public int RollResult(bool visualEffects);
+        public int RollResult();
 
 
 

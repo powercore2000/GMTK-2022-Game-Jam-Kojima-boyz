@@ -23,7 +23,7 @@ namespace DiceSystem
 
         }
 
-        public int RollResult(bool visualEffects)
+        public int RollResult()
         {
             //OnDieRoll.Invoke();
             //if (visualEffects) OnDieRollVFX.Invoke();
