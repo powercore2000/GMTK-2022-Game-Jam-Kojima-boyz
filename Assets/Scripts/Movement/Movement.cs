@@ -1,15 +1,25 @@
 using System.Collections;
 using UnityEngine;
 
+
+
+
 namespace Movement
 {
+   
     public class Movement : MonoBehaviour
     {
         [SerializeField] private float speed;
         private bool isMoving;
+        private Player player;
+        void Start()
+        {
+            player = GetComponent<Player>();  
+        }
 
         public void Move(Vector2 newPos)
         {
+
             if(isMoving) return;
             StartCoroutine(MoveRoutine(newPos));
         
@@ -31,6 +41,7 @@ namespace Movement
                 yield return null;
             }
             isMoving = false;
+            
         }
     }
 }
