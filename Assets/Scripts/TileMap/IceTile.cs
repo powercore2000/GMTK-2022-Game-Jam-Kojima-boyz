@@ -1,3 +1,6 @@
-﻿public class IceTile : Tile
+﻿namespace TileMap
 {
+    public class IceTile : Tile
+    {
+    }
 }

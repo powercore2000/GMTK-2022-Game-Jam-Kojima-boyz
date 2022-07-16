@@ -1,4 +1,7 @@
-﻿public class SpikeTile : Tile
+﻿namespace TileMap
 {
+    public class SpikeTile : Tile
+    {
     
+    }
 }

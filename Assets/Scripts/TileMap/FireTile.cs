@@ -1,4 +1,7 @@
-﻿public class FireTile : Tile
+﻿namespace TileMap
 {
+    public class FireTile : Tile
+    {
     
+    }
 }

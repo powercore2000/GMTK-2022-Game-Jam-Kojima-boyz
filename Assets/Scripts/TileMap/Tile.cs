@@ -1,62 +1,62 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CircleCollider2D))]
-public class Tile : MonoBehaviour
+namespace TileMap
 {
-    [SerializeField] private TileMap _tileMap;
-
-     private GameObject _highlightTile;
-    // Start is called before the first frame update
-    private void Awake()
+    [RequireComponent(typeof(CircleCollider2D))]
+    public class Tile : MonoBehaviour
     {
-        if (!_tileMap)
+        [SerializeField] private TileMap _tileMap;
+        private ILoot _loot; 
+        private GameObject _highlightTile;
+        // Start is called before the first frame update
+        private void Awake()
         {
-            Debug.LogWarning("TILE: tileMap object is not set in inspector");
+            if (!_tileMap)
+            {
+                Debug.LogWarning("TILE: tileMap object is not set in inspector");
+            }
+            _highlightTile = transform.GetChild(0).gameObject;
+
         }
-        _highlightTile = transform.GetChild(0).gameObject;
 
-    }
-
-    void Start()
-    {
+        void Start()
+        {
         
-    }
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
+        // Update is called once per frame
+        void Update()
+        {
         
-    }
-
-    private void OnMouseEnter()
-    {
-        if (_highlightTile != null)
-        {
-            _highlightTile.SetActive(true);
         }
-    }
 
-    private void OnMouseExit()
-    {
-        if (_highlightTile != null)
+        private void OnMouseEnter()
         {
-            _highlightTile.SetActive(false);
+            if (_highlightTile != null)
+            {
+                _highlightTile.SetActive(true);
+            }
         }
-    }
 
-    private void OnMouseDown()
-    {
-        var centerTilePos = _tileMap.GetTileCenterPos(transform.position);
-        var player = _tileMap == null? null: _tileMap.Player;
-        if (player != null)
+        private void OnMouseExit()
         {
-            player.Move(centerTilePos);
+            if (_highlightTile != null)
+            {
+                _highlightTile.SetActive(false);
+            }
         }
+
+        private void OnMouseDown()
+        {
+            var centerTilePos = _tileMap.GetTileCenterPos(transform.position);
+            var player = _tileMap == null? null: _tileMap.Player;
+            if (player != null)
+            {
+                player.Move(centerTilePos);
+            }
        
-    }
+        }
 
-    public virtual void ApplyEffect() { }
+        public virtual void ApplyEffect() { }
+    }
 }

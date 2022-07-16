@@ -1,18 +1,20 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-[RequireComponent(typeof(Movement))]
-public class Player: MonoBehaviour
+namespace Movement
 {
-    private Movement _movement;
+    [RequireComponent(typeof(Movement))]
+    public class Player: MonoBehaviour
+    {
+        private Movement _movement;
     
-    private void Awake()
-    {
-        _movement = GetComponent<Movement>();
-    }
+        private void Awake()
+        {
+            _movement = GetComponent<Movement>();
+        }
 
-    public void Move(Vector2 newPos)
-    {
-        _movement.Move(newPos);
+        public void Move(Vector2 newPos)
+        {
+            _movement.Move(newPos);
+        }
     }
 }

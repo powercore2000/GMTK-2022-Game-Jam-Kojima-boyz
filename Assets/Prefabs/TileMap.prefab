@@ -71,9 +71,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
   groundTilePrefab: {fileID: 6565447124314730692, guid: e0a5fdfb2a05d194e9e33660dd3a187b, type: 3}
-  spikeTilePrefab: {fileID: 2343370661372976293, guid: 05bc058c686b3b744a17c49cd932dafd, type: 3}
-  fireTilePrefab: {fileID: 534709963523201704, guid: 959a20d5f982c8c49b38a4de60ba1931, type: 3}
-  iceTilePrefab: {fileID: 2992300493884332700, guid: 1535f99d5ae114e459d20044f6e538dc, type: 3}
+  spikeTilePrefab: {fileID: 2612241693929781463, guid: 219f5fef244227c41951c295ea936a09, type: 3}
+  fireTilePrefab: {fileID: 3059872764418908081, guid: ec825fd540ea2f348a7775567831da29, type: 3}
+  iceTilePrefab: {fileID: 4139210955600327765, guid: 74c11cb086824a04bba9cbac78841779, type: 3}
 --- !u!1001 &263276476586040074
 PrefabInstance:
   m_ObjectHideFlags: 0
