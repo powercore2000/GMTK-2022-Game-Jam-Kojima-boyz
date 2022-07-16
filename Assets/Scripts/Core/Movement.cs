@@ -1,35 +1,42 @@
-using System.Collections;
+using System.Threading.Tasks;
 using UnityEngine;
 
+<<<<<<< HEAD:Assets/Scripts/Core/Movement.cs
+namespace Core
+=======
 
 namespace MovementNamespace
+>>>>>>> 1532fc5625585732e4f31dd16a24134e0e3501f7:Assets/Scripts/Movement/Movement.cs
 {
     public class Movement : MonoBehaviour
     {
         [SerializeField] private float speed;
+<<<<<<< HEAD:Assets/Scripts/Core/Movement.cs
+        private bool _isMoving;
+        public bool IsMoving => _isMoving;
+=======
 
         private bool isMoving;
         private Entity player;
+>>>>>>> 1532fc5625585732e4f31dd16a24134e0e3501f7:Assets/Scripts/Movement/Movement.cs
         void Start()
         {
-            player = GetComponent<Entity>();  
-
         }
 
-        public void Move(Vector2 newPos)
+        public async Task Move(Vector2 newPos)
         {
-
-            if(isMoving) return;
-            StartCoroutine(MoveRoutine(newPos));
-        
+            await MoveRoutine(newPos);
         }
 
         // will apply some smoothing, for now just raw and simple movement
-        private IEnumerator MoveRoutine(Vector2 newPos)
+        private async Task MoveRoutine(Vector2 newPos)
         {
+<<<<<<< HEAD:Assets/Scripts/Core/Movement.cs
+=======
             //turnSystem.StartEnemyCoroutine();
             Debug.Log("Should start enemy");
             isMoving = true;
+>>>>>>> 1532fc5625585732e4f31dd16a24134e0e3501f7:Assets/Scripts/Movement/Movement.cs
             Vector2 currrentPos = gameObject.transform.position;
             float time = 0;
             while ((currrentPos - newPos).magnitude > 0.01f)
@@ -39,11 +46,15 @@ namespace MovementNamespace
                 var moveAmount =  displacement + currrentPos;
                 transform.position = moveAmount;
                 currrentPos = transform.position;
-                yield return null;
+                await Task.Yield();
             }
-            isMoving = false;
 
+<<<<<<< HEAD:Assets/Scripts/Core/Movement.cs
+            transform.position = newPos;
+
+=======
             //turnSystem.HasMoved();
+>>>>>>> 1532fc5625585732e4f31dd16a24134e0e3501f7:Assets/Scripts/Movement/Movement.cs
         }
 
 

@@ -1,5 +1,6 @@
-﻿using UnityEngine;
-
-public class Potion : Loot
+﻿namespace Loot
 {
+    public class Potion : Loot
+    {
+    }
 }

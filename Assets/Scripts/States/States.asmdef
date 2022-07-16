@@ -1,9 +1,7 @@
 {
-    "name": "TileMao",
+    "name": "TurnSyste,",
     "rootNamespace": "",
     "references": [
-        "GUID:60a30ebf5af564a4ea3b9e6198d8faa3",
-        "GUID:9683c463b32a4794d9ee4e579da357c5",
         "GUID:4c4316ccefcfcb046a2b536945a5c8c8"
     ],
     "includePlatforms": [],

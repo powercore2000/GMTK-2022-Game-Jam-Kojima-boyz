@@ -1,39 +1,26 @@
 ﻿using UnityEngine;
+<<<<<<< HEAD
+
+namespace Core
+=======
 using TurnSystem;
 using MovementNamespace;
 
 
 namespace MovementNamespace
+>>>>>>> 1532fc5625585732e4f31dd16a24134e0e3501f7
 {
     
     [RequireComponent(typeof(Movement))]
     public class Player: Entity
     {
-        private TurnSystem.TurnSystem turnSystem = new TurnSystem.TurnSystem();
-        private Movement _movement;
-        
-        
-    
-        private void Awake()
+        private Vector2 _desiredPos;
+        public Vector2 ClickedTileCenterCoords => _desiredPos;
+        public void SaveDesiredDestination(Vector2 clickedTileCenterPos)
         {
-            
-            _movement = GetComponent<Movement>();
+            _desiredPos = clickedTileCenterPos;
         }
-
-        public override void Move(Vector2 newPos)
-        {
-            if (turnSystem.canMove)
-            {
-                Debug.Log(turnSystem.canMove);
-                Debug.Log("It's not your turn yet");
-                return;
-            }
-            else
-            {
-                _movement.Move(newPos);
-                turnSystem.CanPlayerMove();
-            }
-        }
+        
         
     }
 }

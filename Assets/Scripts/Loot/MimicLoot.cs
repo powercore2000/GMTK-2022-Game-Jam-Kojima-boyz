@@ -1,6 +1,7 @@
-﻿using UnityEngine;
-
-public class MimicLoot : Loot
+﻿namespace Loot
 {
+    public class MimicLoot : Loot
+    {
     
+    }
 }

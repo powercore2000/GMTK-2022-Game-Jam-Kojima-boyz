@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace EntitySystem
+namespace PlayerSystem
 {
     public class IEntity : MonoBehaviour
     {

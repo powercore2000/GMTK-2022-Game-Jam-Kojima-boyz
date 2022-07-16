@@ -1,6 +1,7 @@
-﻿using UnityEngine;
-
-public class WeaponBonus : Loot
+﻿namespace Loot
 {
+    public class WeaponBonus : Loot
+    {
     
+    }
 }
