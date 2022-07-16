@@ -1,4 +1,6 @@
-﻿public class MimicLoot : ILoot
+﻿using UnityEngine;
+
+public class MimicLoot : Loot
 {
     
 }

@@ -6,15 +6,14 @@ using UnityEngine;
 
 namespace Movement
 {
-   
     public class Movement : MonoBehaviour
     {
         [SerializeField] private float speed;
         private bool isMoving;
-        private Player player;
+        private IEntity player;
         void Start()
         {
-            player = GetComponent<Player>();  
+            player = GetComponent<IEntity>();  
         }
 
         public void Move(Vector2 newPos)

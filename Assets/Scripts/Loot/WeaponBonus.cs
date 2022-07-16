@@ -1,4 +1,6 @@
-﻿public class WeaponBonus : ILoot
+﻿using UnityEngine;
+
+public class WeaponBonus : Loot
 {
     
 }

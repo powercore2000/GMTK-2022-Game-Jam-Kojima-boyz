@@ -1,4 +1,6 @@
-﻿public abstract class ILoot 
+﻿using UnityEngine;
+
+public abstract class Loot :MonoBehaviour
 {
      
 }
