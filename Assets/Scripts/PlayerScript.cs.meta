@@ -1,9 +1,7 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Scripts/Movement/Movement.cs.meta
+
 guid: d184ac255ca0bf14991c497e7d0161c4
-========
-guid: f1e2031e213c48746ae51f6e7a642d4b
->>>>>>>> Turn-System:Assets/Scripts/PlayerScript.cs.meta
+
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
