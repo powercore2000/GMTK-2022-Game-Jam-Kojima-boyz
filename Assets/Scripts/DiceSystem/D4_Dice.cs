@@ -17,12 +17,13 @@ namespace DiceSystem
         public D4_Dice()
         {
 
-
+            //Sets the roll table to be any value between 1 and 4
             RollTableValues = new int[] { 1, 2, 3, 4 };
 
 
         }
 
+        //Returns random value from the dice
         public int RollResult()
         {
             //OnDieRoll.Invoke();
