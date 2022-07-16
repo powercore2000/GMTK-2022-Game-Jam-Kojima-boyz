@@ -939,6 +939,10 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 1599688057}
+    - target: {fileID: 6393563152405041847, guid: 6c7744b65841b7d4bbcbbb1e44114159, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents:
     - {fileID: 6146163360874745694, guid: 6c7744b65841b7d4bbcbbb1e44114159, type: 3}
     - {fileID: 6146163359815640963, guid: 6c7744b65841b7d4bbcbbb1e44114159, type: 3}
@@ -1273,7 +1277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  turnSystem: {fileID: 1539570891}
+  turnSystem: {fileID: 0}
 --- !u!212 &1599688059
 SpriteRenderer:
   m_ObjectHideFlags: 0
