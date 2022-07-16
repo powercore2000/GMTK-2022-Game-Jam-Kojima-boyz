@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/TileMap/Tile.cs.meta
 guid: f23a20b1fb9d06944bb83ac6e4db8952
+========
+guid: fde8a56b371b383448ed360e241f3401
+>>>>>>>> Turn-System:Assets/Scripts/TurnSystem.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
