@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/Movement/Movement.cs.meta
+guid: 7d28c17e13288c841b02ae20ea349ddb
+========
+guid: f1e2031e213c48746ae51f6e7a642d4b
+>>>>>>>> Turn-System:Assets/Scripts/PlayerScript.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
