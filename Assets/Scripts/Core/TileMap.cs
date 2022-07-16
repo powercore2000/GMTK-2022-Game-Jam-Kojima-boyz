@@ -1,5 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
+<<<<<<< HEAD:Assets/Scripts/Core/TileMap.cs
+=======
+using MovementNamespace;
+>>>>>>> 1532fc5625585732e4f31dd16a24134e0e3501f7:Assets/Scripts/TileMap/TileMap.cs
 using UnityEngine;
 
 namespace Core
