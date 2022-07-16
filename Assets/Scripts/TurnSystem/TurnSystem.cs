@@ -9,7 +9,7 @@ using UnityEngine.UI;
 namespace TurnSystem
 {
     public enum BattleStates { Start, Playerturn, Enemyturn, Win, Lose }
-    public class TurnSystem : MonoBehaviour
+    public class TurnSystemBehaviour : MonoBehaviour
     {
         [SerializeField] private Slider playerHealth;
         [SerializeField] private Slider enemyHealth;
@@ -109,6 +109,7 @@ namespace TurnSystem
             if (HasPlayerDied()) yield break;
             states = BattleStates.Playerturn;
         }
+        
         void DamagePlayer(int dmg)
         {
             playerHealth.value -= dmg;
