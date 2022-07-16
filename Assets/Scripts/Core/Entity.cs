@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Core
 {
@@ -20,9 +21,13 @@ namespace Core
         {
             await _movement.Move(newPos);
         }
-        protected void CalculateTileDisplacement(Vector2 targetPos)
+        public int CalculateTileIndexDisplacement(Vector2 targetPos)
         {
             var tiles = _tileMap.Tiles;
+            var currentTileIndex = _tileMap.GetIndexByPos(transform.position);
+            var TargetTileIndex = _tileMap.GetIndexByPos(transform.position);
+            var indexDispl = TargetTileIndex - currentTileIndex;
+            return Mathf.Abs(indexDispl);
         }
         
         

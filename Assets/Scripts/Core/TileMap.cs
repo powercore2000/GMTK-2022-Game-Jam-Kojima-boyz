@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -30,7 +31,7 @@ namespace Core
         
         [Header("Enemies")] 
         // for now just gameobject
-        [SerializeField] private GameObject enemyStub;
+        [SerializeField] private Enemy enemyStub;
         
         [Header("Roll 6 Settings")]
         [SerializeField][Range(0, 1)]
@@ -65,7 +66,10 @@ namespace Core
             _tiles = GetComponentsInChildren<Tile>().ToList();
         }
 
-        
+        private void Start()
+        {
+            _tiles[0].SetEntity(_player);
+        }
 
         public void SetTilesHighlighted(Vector2 targetTile)
         {
@@ -204,7 +208,7 @@ namespace Core
             randomTile.SetLoot(loot);
         }
 
-        private void SpawnEnemy(Tile randomTile, Vector2 tilePos,GameObject enemytToSpawn)
+        private void SpawnEnemy(Tile randomTile, Vector2 tilePos,Enemy enemytToSpawn)
         {
             var enemy = Instantiate(enemytToSpawn, randomTile.GetTileCenterPos(), Quaternion.identity);
             randomTile.SetEntity(enemy);
@@ -264,6 +268,19 @@ namespace Core
                 _tiles[i] = groundTilePrefab.GetComponent<Tile>();
                
             }
+        }
+
+        public int GetIndexByPos(Vector2 pos)
+        {
+            for (int i = 0;i<_tiles.Count; i++)
+            {
+                if (pos == _tiles[i].GetTileCenterPos())
+                {
+                    return i;
+                }
+            }
+
+            return -1;
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Core
         
         
         // Will be entity
-        private GameObject _entity;
+        private Entity _entity;
         private SpriteRenderer _spriteRenderer;
 
         // Start is called before the first frame update
@@ -31,12 +31,13 @@ namespace Core
             _highlightTile = transform.GetChild(0).gameObject;
         }
 
-        public void SetEntity(GameObject entity)
+        public void SetEntity(Entity entity)
         {
             _entity = entity;
+            _entity.transform.position = GetTileCenterPos();
         }
 
-        public GameObject GetEntity()
+        public Entity GetEntity()
         {
             return _entity;
         }
@@ -74,11 +75,19 @@ namespace Core
         }
 
         private void OnMouseEnter()
-        {
-            if (_highlightTile != null)
+        { 
+            var indexDisplacent = _tileMap.Player.CalculateTileIndexDisplacement(_highlightTile.transform.position);
+            bool isHorizontal = indexDisplacent == 1;
+            bool isVertical = indexDisplacent == 5;
+            bool isDiagonal = indexDisplacent == 6;
+            if ( isDiagonal || isVertical || isHorizontal)
             {
-                _highlightTile.SetActive(true);
+                if (_highlightTile != null)
+                {
+                    _highlightTile.SetActive(true);
+                }
             }
+           
         }
 
         private void OnMouseExit()
