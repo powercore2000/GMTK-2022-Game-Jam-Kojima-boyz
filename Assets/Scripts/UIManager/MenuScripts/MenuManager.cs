@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] private GameObject optionsMenu;
+    [SerializeField] private GameObject mainMenu;
+    [SerializeField] private Slider audioSlider;
 
 
     public Scene savedScene;
@@ -42,11 +44,14 @@ public class MenuManager : MonoBehaviour
     public void Options()
     {
         optionsMenu.gameObject.SetActive(true);
-        this.gameObject.SetActive(false);
+        mainMenu.gameObject.SetActive(false);
     }
     public void ApplicationQuit()
     {
         Application.Quit();
     }
-
+    public void SaveVolume()
+    {
+        PlayerPrefs.SetFloat("SavedVolume", audioSlider.value);
+    }
 }
