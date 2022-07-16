@@ -116,6 +116,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tileMap: {fileID: 0}
+  _moveColor: {r: 1, g: 1, b: 1, a: 0.2784314}
+  _hostileColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1001 &1674969485251424316
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -123,6 +125,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6565447124314874580}
     m_Modifications:
+    - target: {fileID: 6968927058577332636, guid: 8403c449d11acaf47b212a841994e9a3, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6968927058577332636, guid: 8403c449d11acaf47b212a841994e9a3, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6968927058577332636, guid: 8403c449d11acaf47b212a841994e9a3, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6968927058598037104, guid: 8403c449d11acaf47b212a841994e9a3, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -170,6 +184,10 @@ PrefabInstance:
     - target: {fileID: 6968927058598450272, guid: 8403c449d11acaf47b212a841994e9a3, type: 3}
       propertyPath: m_Name
       value: HighlightTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 6968927058598450272, guid: 8403c449d11acaf47b212a841994e9a3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8403c449d11acaf47b212a841994e9a3, type: 3}

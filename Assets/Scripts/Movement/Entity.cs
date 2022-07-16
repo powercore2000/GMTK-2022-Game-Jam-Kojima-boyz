@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Movement
+namespace MovementNamespace
 {
     public abstract class Entity:MonoBehaviour
     {

@@ -4,7 +4,7 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 using DiceSystem;
-using PlayerSystems;
+using PlayerSystem;
 
 public class PlayerSystemTests
 {
