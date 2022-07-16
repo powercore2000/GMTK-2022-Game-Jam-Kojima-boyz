@@ -7,7 +7,7 @@ namespace Movement
 {
     
     [RequireComponent(typeof(Movement))]
-    public class Player: MonoBehaviour
+    public class Player: Entity
     {
         private TurnSystem.TurnSystem turnSystem = new TurnSystem.TurnSystem();
         private Movement _movement;
@@ -20,7 +20,7 @@ namespace Movement
             _movement = GetComponent<Movement>();
         }
 
-        public void Move(Vector2 newPos)
+        public override void Move(Vector2 newPos)
         {
             if (turnSystem.canMove)
             {

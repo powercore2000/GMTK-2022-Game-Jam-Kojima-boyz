@@ -1,3 +1,5 @@
-﻿public class Potion : ILoot
+﻿using UnityEngine;
+
+public class Potion : Loot
 {
 }

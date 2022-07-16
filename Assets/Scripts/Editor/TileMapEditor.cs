@@ -20,6 +20,10 @@ namespace TileMap
             {
                 _tileMap.GenerateMap(index+1);
             }
+            if (GUILayout.Button("Reset To DefautTiles"))
+            {
+                _tileMap.Reset();
+            }
         }
         private void OnEnable()
         {

@@ -6,18 +6,21 @@ using TurnSystem;
 
 namespace Movement
 {
-   
     public class Movement : MonoBehaviour
     {
         [SerializeField] private float speed;
         public TurnSystem.TurnSystem turnSystem = new TurnSystem.TurnSystem();
 
         private bool isMoving;
-        private Player player;
+        private Entity player;
         void Start()
         {
+<<<<<<< HEAD
             
             player = GetComponent<Player>();  
+=======
+            player = GetComponent<Entity>();  
+>>>>>>> 4228d669b94869d4f53ba9ef996dfb5e08b793b8
         }
 
         public void Move(Vector2 newPos)

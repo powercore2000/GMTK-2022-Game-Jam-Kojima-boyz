@@ -7,9 +7,10 @@ namespace TileMap
     public class Tile : MonoBehaviour
     {
         [SerializeField] private TileMap _tileMap;
-        private ILoot _loot;
+        private Loot _loot;
         private GameObject _highlightTile;
-
+        // Will be entity
+        private GameObject _entity;
         private SpriteRenderer _spriteRenderer;
 
         // Start is called before the first frame update
@@ -24,13 +25,32 @@ namespace TileMap
             _highlightTile = transform.GetChild(0).gameObject;
         }
 
-        void Start()
+        public void SetEntity(GameObject entity)
         {
+            _entity = entity;
         }
 
-        // Update is called once per frame
-        void Update()
+        public GameObject GetEntity()
         {
+            return _entity;
+        }
+
+        public SpriteRenderer GetSpriteRenderer()
+        {
+            #if UNITY_EDITOR
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+            #endif
+            return _spriteRenderer;
+        }
+
+        public void SetLoot(Loot loot)
+        {
+            _loot = loot;
+        }
+
+        public Loot GetLoot()
+        {
+            return _loot;
         }
 
         public void UpdateSprite(Sprite sprite)
@@ -57,9 +77,16 @@ namespace TileMap
             }
         }
 
+        public Vector2 GetTileCenterPos()
+        {
+            
+            var xPos = transform.position.x;
+            var yPos = transform.position.y+0.25f;
+            return new Vector2(xPos, yPos);
+        }
         private void OnMouseDown()
         {
-            var centerTilePos = _tileMap.GetTileCenterPos(transform.position);
+            var centerTilePos = GetTileCenterPos();
             var player = _tileMap == null ? null : _tileMap.Player;
             if (player != null)
             {

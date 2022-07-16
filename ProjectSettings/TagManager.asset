@@ -44,6 +44,9 @@ TagManager:
   - name: TileMap
     uniqueID: 1055786241
     locked: 0
+  - name: Loot
+    uniqueID: 2483228407
+    locked: 0
   - name: Enemy
     uniqueID: 4113531179
     locked: 0
