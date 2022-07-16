@@ -42,9 +42,4 @@ public class EnemyAI : MonoBehaviour
             Debug.Log("Spawn melees");
         }
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("I'm in range");
-    }
 }
