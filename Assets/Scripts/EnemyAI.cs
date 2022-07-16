@@ -2,65 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DiceSystem;
-using MovementNamespace;
 
+public enum range { Melee, Ranged }
+public class EnemyAI : MonoBehaviour
+{
+    public D6_Dice diceScript = new D6_Dice();
+    private int rollResult;
+    private range enemyRange;
 
-    public enum range { Melee, Ranged }
-
-    [RequireComponent(typeof(Movement))]
-    public class EnemyAI : Entity
+    void Start()
     {
 
-        public D6_Dice diceScript = new D6_Dice();
-        private int rollResult;
-        private range enemyRange;
-        private TurnSystem.TurnSystemBehaviour turnSystem;
+        InitialRoll();
+        
+    }
 
-        void Start()
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+    void InitialRoll()
+    {
+        rollResult = diceScript.RollResult();
+        Debug.Log(rollResult);
+
+        SpawnEnemiesDependingOnRollResults();
+    }
+    void SpawnEnemiesDependingOnRollResults()
+    {
+        if(rollResult >= 3)
         {
-
-            InitialRoll();
-
+            enemyRange = range.Ranged;
+            Debug.Log("Spawn ranged");
         }
-
-        // Update is called once per frame
-        void Update()
+        else if(rollResult <= 3)
         {
-
-        }
-        void InitialRoll()
-        {
-            rollResult = diceScript.RollResult();
-            Debug.Log(rollResult);
-
-            SpawnEnemiesDependingOnRollResults();
-        }
-        void SpawnEnemiesDependingOnRollResults()
-        {
-            if (rollResult >= 3)
-            {
-                enemyRange = range.Ranged;
-                Debug.Log("Spawn ranged");
-            }
-            else if (rollResult <= 3)
-            {
-                enemyRange = range.Melee;
-                Debug.Log("Spawn melees");
-            }
-        }
-
-        public override void Move(Vector2 newPos)
-        {
-            if (turnSystem.canMove)
-            {
-                Debug.Log(turnSystem.canMove);
-                Debug.Log("It's not your turn yet");
-                return;
-            }
-            else
-            {
-                //_movement.Move(newPos);
-                turnSystem.CanPlayerMove();
-            }
+            enemyRange = range.Melee;
+            Debug.Log("Spawn melees");
         }
     }
+}

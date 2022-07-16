@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using TurnSystem;
-using MovementNamespace;
 
 
-namespace MovementNamespace
+
+namespace Movement
 {
     
     [RequireComponent(typeof(Movement))]
