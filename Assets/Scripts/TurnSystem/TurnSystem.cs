@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Movement;
 
 
 
+
+namespace TurnSystem
+{
     public enum BattleStates { Start, Playerturn, Enemyturn, Win, Lose }
     public class TurnSystem : MonoBehaviour
     {
@@ -13,14 +15,14 @@ using Movement;
         [SerializeField] private Slider enemyHealth;
 
 
-        private Player playerScript;
+        public bool canMove;
         private int standardWaitTime = 2; // The standard wait time for coroutines with no specific wait time.
         public BattleStates states;
         // Start is called before the first frame update
         void Start()
         {
             states = BattleStates.Start;
-            playerScript = FindObjectOfType<Player>();
+            
             StartCoroutine(SetGameUp());
         }
 
@@ -36,15 +38,17 @@ using Movement;
 
             yield return new WaitForSeconds(standardWaitTime);
             states = BattleStates.Playerturn; // It's now the player turn
+            yield return new WaitForSeconds(standardWaitTime);
             PlayerTurn();
         }
         public void PlayerTurn() // Player turn
         {
             if (states != BattleStates.Playerturn) return;
-            playerScript.canPlayerMove = true;
+            
         }
         public void Attack(float dmg)
         {
+            if (states != BattleStates.Playerturn) return;
             enemyHealth.value -= dmg;
             Debug.Log("Enemy has been damaged");
 
@@ -57,8 +61,24 @@ using Movement;
         {
             if (states != BattleStates.Playerturn) return;
             StartCoroutine(HealThePlayer());
+            states = BattleStates.Enemyturn;
         }
-        
+        public void  CanPlayerMove()
+        {
+            if (states != BattleStates.Playerturn) return;
+            if (states == BattleStates.Playerturn) 
+            {
+                canMove = true;
+            }
+
+        }
+        public void HasMoved()
+        {
+            states = BattleStates.Enemyturn;
+            CanPlayerMove();
+            StartCoroutine(EnemyTurn());
+        }
+
 
 
         IEnumerator HealThePlayer()
@@ -67,8 +87,11 @@ using Movement;
             playerHealth.value += 10;
             Debug.Log("Healed the player");
             yield return new WaitForSeconds(1);
-            
-            states = BattleStates.Enemyturn;
+
+            StartCoroutine(EnemyTurn());
+        }
+        public void StartEnemyCoroutine()
+        {
             StartCoroutine(EnemyTurn());
         }
         public IEnumerator EnemyTurn()
@@ -112,5 +135,6 @@ using Movement;
             return false;
         }
     }
+}
 
 

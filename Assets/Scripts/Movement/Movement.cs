@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-
+using TurnSystem;
 
 
 
@@ -10,10 +10,13 @@ namespace Movement
     public class Movement : MonoBehaviour
     {
         [SerializeField] private float speed;
+        public TurnSystem.TurnSystem turnSystem = new TurnSystem.TurnSystem();
+
         private bool isMoving;
         private Player player;
         void Start()
         {
+            
             player = GetComponent<Player>();  
         }
 
@@ -28,6 +31,8 @@ namespace Movement
         // will apply some smoothing, for now just raw and simple movement
         private IEnumerator MoveRoutine(Vector2 newPos)
         {
+            turnSystem.StartEnemyCoroutine();
+            Debug.Log("Should start enemy");
             isMoving = true;
             Vector2 currrentPos = gameObject.transform.position;
             float time = 0;
@@ -41,7 +46,8 @@ namespace Movement
                 yield return null;
             }
             isMoving = false;
-            
+
+            turnSystem.HasMoved();
         }
     }
 }
