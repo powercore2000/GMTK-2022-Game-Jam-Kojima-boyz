@@ -74,19 +74,32 @@ namespace Core
             _spriteRenderer.sprite = sprite;
         }
 
+        public int CalculateTileIndexDisplacement(Vector2 targetPos)
+        {
+           
+            var tiles = _tileMap.Tiles; 
+            Debug.Log(tiles);
+            var currentTileIndex = _tileMap.GetIndexByPos(_tileMap.Player.transform.position);
+            var TargetTileIndex = _tileMap.GetIndexByPos(targetPos);
+            Debug.Log( "Target" +TargetTileIndex );
+            var indexDispl = TargetTileIndex - currentTileIndex;
+            return Mathf.Abs(indexDispl);
+        }
         private void OnMouseEnter()
         { 
-            var indexDisplacent = _tileMap.Player.CalculateTileIndexDisplacement(_highlightTile.transform.position);
-            bool isHorizontal = indexDisplacent == 1;
-            bool isVertical = indexDisplacent == 5;
-            bool isDiagonal = indexDisplacent == 6;
-            if ( isDiagonal || isVertical || isHorizontal)
-            {
+           
+         //  var indexDisplacement = CalculateTileIndexDisplacement(GetTileCenterPos());
+         //
+         // bool isHorizontal = indexDisplacement == 1 ;
+         // bool isVertical = indexDisplacement == 5 ;
+         // bool isDiagonal = indexDisplacement == 6 ;
+         // if ( isDiagonal || isVertical || isHorizontal)
+           // {
                 if (_highlightTile != null)
                 {
                     _highlightTile.SetActive(true);
                 }
-            }
+          //  }
            
         }
 

@@ -23,9 +23,12 @@ namespace Core
         }
         public int CalculateTileIndexDisplacement(Vector2 targetPos)
         {
-            var tiles = _tileMap.Tiles;
+           
+            var tiles = _tileMap.Tiles; 
+           
             var currentTileIndex = _tileMap.GetIndexByPos(transform.position);
-            var TargetTileIndex = _tileMap.GetIndexByPos(transform.position);
+            var TargetTileIndex = _tileMap.GetIndexByPos(targetPos);
+            Debug.Log(TargetTileIndex);
             var indexDispl = TargetTileIndex - currentTileIndex;
             return Mathf.Abs(indexDispl);
         }
