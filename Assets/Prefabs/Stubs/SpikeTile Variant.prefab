@@ -57,7 +57,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3059872764418908081, guid: ec825fd540ea2f348a7775567831da29, type: 3}
       propertyPath: m_Name
-      value: SpikeTile
+      value: SpikeTile Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4335800020070104488, guid: ec825fd540ea2f348a7775567831da29, type: 3}
+    - {fileID: 2848292303652139287, guid: ec825fd540ea2f348a7775567831da29, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ec825fd540ea2f348a7775567831da29, type: 3}
+--- !u!1 &2612241693929781463 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3059872764418908081, guid: ec825fd540ea2f348a7775567831da29, type: 3}
+  m_PrefabInstance: {fileID: 1024096038374532966}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &225618456928967737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2612241693929781463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96664cc73fdd402f81151580318e9e8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tileMap: {fileID: 0}

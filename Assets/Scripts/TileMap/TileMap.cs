@@ -12,27 +12,29 @@ namespace TileMap
         private int _width = 5;
         private int _height = 5;
         [SerializeField] private Player _player;
-        [SerializeField] private GameObject groundTilePrefab;
-        [SerializeField] private GameObject spikeTilePrefab;
-        [SerializeField] private GameObject fireTilePrefab;
-        [SerializeField] private GameObject iceTilePrefab;
+        [SerializeField] private Tile groundTilePrefab;
+        [SerializeField] private Tile spikeTilePrefab;
+        [SerializeField] private Tile fireTilePrefab;
+        [SerializeField] private Tile iceTilePrefab;
         
-        [Header("Roll4 Settings")]
+        [Header("Roll 4 Settings")]
         [SerializeField] private int amountOfEnemiesOnRoll4;
-        [Header("Roll3 Settings")]
+        [Header("Roll 3 Settings")]
         [SerializeField] private int amountOfEnemiesOnRoll3;
         
         [Tooltip("Uniform distribution of hazards")]
         [SerializeField][Range(0, 1)] private float probabilityOfTileIsHazard;
        
         
-        [Header("Roll2 Settings")] 
+        [Header("Roll 2 Settings")] 
         [SerializeField][Range(0, 1)]
         private float probabilityOfBoss;
         
-        [Header("Roll1 Settings")] 
+        [Header("Roll 1 Settings")] 
         [SerializeField][Range(0, 1)]
         private float probabilityOfMimic;
+        [SerializeField][Range(0, 1)]
+        private float probabiltyOfTileIsOnFire;
         
 
         private List<Tile> _tiles = new List<Tile>();
@@ -50,7 +52,7 @@ namespace TileMap
         }
         void Start()
         {
-      
+            
         }
 
         public void SetTilesHighlighted(Vector2 targetTile)
@@ -63,10 +65,11 @@ namespace TileMap
         // might use polymorphism to get rid of switch
         public void GenerateMap(int rollAmount)
         {
+          Debug.Log(rollAmount);
             switch (rollAmount)
             {
                 case 1 :
-                   
+                   GenerateMiniBossOrMimicWithFire(probabilityOfMimic,probabiltyOfTileIsOnFire);
                     break;
                 case 2 :
                     GenerateMiniBoosOrMimic(probabilityOfBoss);
@@ -104,9 +107,54 @@ namespace TileMap
             
         }
 
-        private void GenerateMiniBossOrMimicWithFire(float probabilityOfBoss)
+        private void GenerateMiniBossOrMimicWithFire(float probabilityOfMimic,float probabiltyOfTileIsOnFire)
         {
-            
+            #if UNITY_EDITOR
+            _tiles = GetComponentsInChildren<Tile>().ToList();
+            #endif
+
+
+            var randomValueMimic = GetRandomValue();
+            if (randomValueMimic < probabilityOfMimic)
+            {
+                // got mimic
+            }
+            else
+            {
+                // got boss
+            }
+            // generate new TileMap
+            for ( int i = 0; i< _tiles.Count; i++)
+            {
+
+                if (GetRandomValue() < probabiltyOfTileIsOnFire)
+                {
+                    _tiles[i].UpdateSprite(fireTilePrefab.GetComponent<SpriteRenderer>().sprite);
+                    _tiles[i] = fireTilePrefab.GetComponent<Tile>();
+                }
+                
+            }
+
+        }
+
+
+        private float GetRandomValue()
+        {
+          return UnityEngine.Random.Range(0, 1f);
+          
+        }
+        private int GetRandomIndex()
+        {
+            var count = _tiles.Count;
+            var value = UnityEngine.Random.Range(0, count);
+            return value;
+        }
+
+        private Tile GetRandomTile()
+        {
+            var randomIndex = GetRandomIndex();
+            var tile = _tiles[randomIndex];
+            return tile;
         }
     }
 }
