@@ -11,7 +11,7 @@ namespace TileMap
         private readonly Vector2 Offset = new Vector2(0.418f, -0.237f); 
         private int _width = 5;
         private int _height = 5;
-        [SerializeField] private IEntity _player;
+        [SerializeField] private Entity _player;
 
         [Header("Tiles")] 
                 
@@ -60,7 +60,7 @@ namespace TileMap
         
 
         private List<Tile> _tiles = new List<Tile>();
-        public IEntity Player => _player;
+        public Entity Player => _player;
         private void Awake()
         {
             _tiles = GetComponentsInChildren<Tile>().ToList();

@@ -10,10 +10,10 @@ namespace Movement
     {
         [SerializeField] private float speed;
         private bool isMoving;
-        private IEntity player;
+        private Entity player;
         void Start()
         {
-            player = GetComponent<IEntity>();  
+            player = GetComponent<Entity>();  
         }
 
         public void Move(Vector2 newPos)
