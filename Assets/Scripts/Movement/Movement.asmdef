@@ -1,7 +1,9 @@
 {
     "name": "Movement",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "GUID:2af9eb657e1d34049b9232a71b16a8d3"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
