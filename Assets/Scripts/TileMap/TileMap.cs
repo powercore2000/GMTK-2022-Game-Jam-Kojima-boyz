@@ -111,7 +111,7 @@ namespace TileMap
             for (int i = 0; i < _tiles.Count; i++)
             {
                 var randomValue = GetRandomValue();
-                if (randomValue > probabilityOfLoot) return;
+                if (randomValue > probabilityOfLoot) continue;
                 
                 if (randomValue < 0.25f)
                 {
