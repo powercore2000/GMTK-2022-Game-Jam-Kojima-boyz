@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 
 public class OptionsScript : MonoBehaviour
 {
-    [SerializeField] private Slider audioSlider;
+    
     [SerializeField] private GameObject mainMenu;
     // Start is called before the first frame update
     void Start()
@@ -18,10 +18,7 @@ public class OptionsScript : MonoBehaviour
     {
         
     }
-    public void SaveVolume()
-    {
-        PlayerPrefs.SetFloat("SavedVolume", audioSlider.value);
-    }
+    
     public void BackToMain()
     {
         this.gameObject.SetActive(false);
