@@ -12,9 +12,12 @@ public class Tile : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
+        if (!_tileMap)
+        {
+            Debug.LogWarning("TILE: tileMap object is not set in inspector");
+        }
         _highlightTile = transform.GetChild(0).gameObject;
-        //  GameObject highlightTile = Instantiate(_highlightTile, transform.position, Quaternion.identity);
-        //highlightTile.gameObject.transform.parent = transform;
+
     }
 
     void Start()
@@ -30,7 +33,6 @@ public class Tile : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        // set highlight;
         if (_highlightTile != null)
         {
             _highlightTile.SetActive(true);
@@ -43,5 +45,16 @@ public class Tile : MonoBehaviour
         {
             _highlightTile.SetActive(false);
         }
+    }
+
+    private void OnMouseDown()
+    {
+        var centerTilePos = _tileMap.GetTileCenterPos(transform.position);
+        var player = _tileMap == null? null: _tileMap.Player;
+        if (player != null)
+        {
+            player.Move(centerTilePos);
+        }
+       
     }
 }
