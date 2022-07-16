@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 
-public abstract class Loot :MonoBehaviour
+namespace Loot
 {
+    public abstract class Loot :MonoBehaviour
+    {
      
+    }
 }

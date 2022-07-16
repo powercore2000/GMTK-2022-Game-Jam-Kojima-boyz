@@ -1,14 +1,20 @@
 using UnityEngine;
 
-namespace TileMap
+namespace Core
 {
     [RequireComponent(typeof(CircleCollider2D))]
     [RequireComponent(typeof(SpriteRenderer))]
     public class Tile : MonoBehaviour
     {
         [SerializeField] private TileMap _tileMap;
-        private Loot _loot;
+        private Loot.Loot _loot;
         private GameObject _highlightTile;
+
+        [Header("HighlightedColors")]
+        [SerializeField] private Color _moveColor;
+        [SerializeField] private Color _hostileColor;
+        
+        
         // Will be entity
         private GameObject _entity;
         private SpriteRenderer _spriteRenderer;
@@ -43,16 +49,22 @@ namespace TileMap
             return _spriteRenderer;
         }
 
-        public void SetLoot(Loot loot)
+        public void SetLoot(Loot.Loot loot)
         {
             _loot = loot;
         }
 
-        public Loot GetLoot()
+        public Loot.Loot GetLoot()
         {
             return _loot;
         }
 
+
+        public void UpdateHighlightColor(Color color)
+        {
+            _highlightTile.GetComponent<SpriteRenderer>().color = color;
+        }
+        
         public void UpdateSprite(Sprite sprite)
         {
         #if UNITY_EDITOR
@@ -90,7 +102,7 @@ namespace TileMap
             var player = _tileMap == null ? null : _tileMap.Player;
             if (player != null)
             {
-                player.Move(centerTilePos);
+                player.SaveDesiredDestination(centerTilePos);
             }
         }
 

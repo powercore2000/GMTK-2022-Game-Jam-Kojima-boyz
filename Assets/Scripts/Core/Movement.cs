@@ -1,38 +1,25 @@
-using System.Collections;
+using System.Threading.Tasks;
 using UnityEngine;
-using TurnSystem;
 
-
-
-namespace Movement
+namespace Core
 {
     public class Movement : MonoBehaviour
     {
         [SerializeField] private float speed;
-        public TurnSystem.TurnSystem turnSystem = new TurnSystem.TurnSystem();
-
-        private bool isMoving;
-        private Entity player;
+        private bool _isMoving;
+        public bool IsMoving => _isMoving;
         void Start()
         {
-            player = GetComponent<Entity>();  
-
         }
 
-        public void Move(Vector2 newPos)
+        public async Task Move(Vector2 newPos)
         {
-
-            if(isMoving) return;
-            StartCoroutine(MoveRoutine(newPos));
-        
+            await MoveRoutine(newPos);
         }
 
         // will apply some smoothing, for now just raw and simple movement
-        private IEnumerator MoveRoutine(Vector2 newPos)
+        private async Task MoveRoutine(Vector2 newPos)
         {
-            turnSystem.StartEnemyCoroutine();
-            Debug.Log("Should start enemy");
-            isMoving = true;
             Vector2 currrentPos = gameObject.transform.position;
             float time = 0;
             while ((currrentPos - newPos).magnitude > 0.01f)
@@ -42,11 +29,11 @@ namespace Movement
                 var moveAmount =  displacement + currrentPos;
                 transform.position = moveAmount;
                 currrentPos = transform.position;
-                yield return null;
+                await Task.Yield();
             }
-            isMoving = false;
 
-            turnSystem.HasMoved();
+            transform.position = newPos;
+
         }
     }
 }

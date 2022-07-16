@@ -1,3 +1,6 @@
-﻿class HealthPotion : Potion
+﻿namespace Loot
 {
+    class HealthPotion : Potion
+    {
+    }
 }

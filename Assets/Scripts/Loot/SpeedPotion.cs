@@ -1,3 +1,6 @@
-﻿class SpeedPotion : Potion
+﻿namespace Loot
 {
+    class SpeedPotion : Potion
+    {
+    }
 }

@@ -17,17 +17,14 @@ namespace DiceSystem
 
         public D20_Dice()
         {
-
-
             RollTableValues = Enumerable.Range(1, 20).ToArray();
-
-
         }
 
         public int RollResult()
         {
             //OnDieRoll.Invoke();
             //if (visualEffects) OnDieRollVFX.Invoke();
+            
             return RollTableValues[UnityEngine.Random.Range(0, RollTableValues.Length)];
         }
     }

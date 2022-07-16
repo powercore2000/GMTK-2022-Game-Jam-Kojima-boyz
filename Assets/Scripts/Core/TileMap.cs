@@ -1,17 +1,15 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using Movement;
 using UnityEngine;
 
-namespace TileMap
+namespace Core
 {
     public class TileMap : MonoBehaviour
     {
         private readonly Vector2 Offset = new Vector2(0.418f, -0.237f); 
         private int _width = 5;
         private int _height = 5;
-        [SerializeField] private Entity _player;
+        [SerializeField] private Player _player;
 
         [Header("Tiles")] 
                 
@@ -24,10 +22,10 @@ namespace TileMap
 
         [Header("Loot")]
         // can be made list
-        [SerializeField] private Loot _mimic;
-        [SerializeField] private Loot _speedPotion;
-        [SerializeField] private Loot _healthPotion;
-        [SerializeField] private Loot _weaponBonus;
+        [SerializeField] private Loot.Loot _mimic;
+        [SerializeField] private Loot.Loot _speedPotion;
+        [SerializeField] private Loot.Loot _healthPotion;
+        [SerializeField] private Loot.Loot _weaponBonus;
 
         
         [Header("Enemies")] 
@@ -60,7 +58,8 @@ namespace TileMap
         
 
         private List<Tile> _tiles = new List<Tile>();
-        public Entity Player => _player;
+        public List<Tile> Tiles => _tiles;
+        public Player Player => _player;
         private void Awake()
         {
             _tiles = GetComponentsInChildren<Tile>().ToList();
@@ -199,9 +198,9 @@ namespace TileMap
             }
         }
 
-        private void SpawnLoot(Tile randomTile, Vector2 tilePos, Loot lootToSpawn)
+        private void SpawnLoot(Tile randomTile, Vector2 tilePos, Loot.Loot lootToSpawn)
         {
-            Loot loot = Instantiate(lootToSpawn, randomTile.GetTileCenterPos(), Quaternion.identity);
+            Loot.Loot loot = Instantiate(lootToSpawn, randomTile.GetTileCenterPos(), Quaternion.identity);
             randomTile.SetLoot(loot);
         }
 

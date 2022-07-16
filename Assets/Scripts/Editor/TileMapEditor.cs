@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace TileMap
 {
-    [CustomEditor(typeof(TileMap))]
+    [CustomEditor(typeof(Core.TileMap))]
     public class TileMapEditor : Editor
     {
         private string[] rollsOptions = {"1","2","3","4","5","6"};
         private int index = 0;
-        private TileMap _tileMap;
+        private Core.TileMap _tileMap;
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
@@ -27,7 +27,7 @@ namespace TileMap
         }
         private void OnEnable()
         {
-            _tileMap = target as TileMap;
+            _tileMap = target as Core.TileMap;
         }
     }
 }

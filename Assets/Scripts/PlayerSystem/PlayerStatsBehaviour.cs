@@ -1,7 +1,7 @@
 using DiceSystem;
 using UnityEngine;
 
-namespace PlayerSystems
+namespace PlayerSystem
 {
     //Monohebehaviour acessor for PlayerStats script
     public class PlayerStatsBehaviour : MonoBehaviour {
