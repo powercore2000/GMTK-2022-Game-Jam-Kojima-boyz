@@ -3,21 +3,22 @@ using UnityEngine;
 
 namespace PlayerSystems
 {
-
+    //Monohebehaviour acessor for PlayerStats script
     public class PlayerStatsBehaviour : MonoBehaviour {
 
+        #region Property Fields
         [field: SerializeField]
         public PlayerStats PlayerStatsInstance { get; private set; }
+        #endregion
 
+        #region Monobehaviour Methods
+        //Initalizes the players stats to default values
         private void Awake()
         {
             PlayerStatsInstance = new PlayerStats();
-        }
-        void Start()
-        {
-
             PlayerStatsInstance.SetCharacterStats(10, new D6_Dice(), new D6_Dice());
         }
+        #endregion
 
 
 
@@ -26,6 +27,7 @@ namespace PlayerSystems
     [System.Serializable]
     public class PlayerStats
     {
+        #region Property Fields
         [field: SerializeField]
         public int Health { get; private set; }
         [field: SerializeField]
@@ -46,10 +48,9 @@ namespace PlayerSystems
         public bool HasMoved { get; private set; }
         [field: SerializeField]
         public bool HasAttacked { get; private set; }
+        #endregion
 
-        // Start is called before the first frame update
-
-
+        #region Player Status Methods
         public void SetCharacterStats(int health, ICustomDie attackDie, ICustomDie moveDie)
         {
 
@@ -59,6 +60,16 @@ namespace PlayerSystems
             MovementDie = moveDie;
 
         }
+
+        public void Death()
+        {
+
+            Debug.Log("You died!");
+            IsDead = true;
+        }
+        #endregion
+
+        #region Player Dice Rolling Methods
 
         public int RollAttack()
         {
@@ -72,8 +83,9 @@ namespace PlayerSystems
             CurrentMovementPoints = TotalMovementPoints;
             return CurrentMovementPoints;
         }
+        #endregion
 
-
+        #region Player Effect Methods
         public void TakeDamage(int damage)
         {
 
@@ -88,12 +100,7 @@ namespace PlayerSystems
             Health += ammount;
             Health = Mathf.Clamp(Health, 0, MaxHealth);
         }
-
-        public void Death() {
-
-            Debug.Log("You died!");
-            IsDead = true;
-        }
+        #endregion
 
     }
 
