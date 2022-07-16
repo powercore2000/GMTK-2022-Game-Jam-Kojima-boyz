@@ -53,11 +53,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4139210955600327765, guid: 74c11cb086824a04bba9cbac78841779, type: 3}
       propertyPath: m_Name
-      value: LavaTile
+      value: LavaTile Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4139210955612764585, guid: 74c11cb086824a04bba9cbac78841779, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: bdef6fb3855cc8d4b8e2baed47bbec70, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -7939439512258744001, guid: 74c11cb086824a04bba9cbac78841779, type: 3}
+    - {fileID: 3783198218897627891, guid: 74c11cb086824a04bba9cbac78841779, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 74c11cb086824a04bba9cbac78841779, type: 3}
+--- !u!1 &3059872764418908081 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4139210955600327765, guid: 74c11cb086824a04bba9cbac78841779, type: 3}
+  m_PrefabInstance: {fileID: 1371263065888304100}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4335800020070104488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3059872764418908081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fa64307b5f04d3ca50a92064a9c085b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tileMap: {fileID: 0}

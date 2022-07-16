@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6565447124314874580}
   - component: {fileID: 6565447124327202104}
   - component: {fileID: 2057873026759420890}
+  - component: {fileID: 6263618181128871522}
   m_Layer: 0
   m_Name: GroundTile
   m_TagString: Untagged
@@ -102,6 +103,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.24}
   serializedVersion: 2
   m_Radius: 0.18
+--- !u!114 &6263618181128871522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6565447124314730692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f23a20b1fb9d06944bb83ac6e4db8952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tileMap: {fileID: 0}
 --- !u!1001 &1674969485251424316
 PrefabInstance:
   m_ObjectHideFlags: 0
