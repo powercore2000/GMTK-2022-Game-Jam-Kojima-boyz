@@ -1,5 +1,6 @@
 using UnityEngine;
 using DiceSystem;
+using GameStateManager;
 
 namespace EntityStatsSystem
 {
@@ -30,7 +31,7 @@ namespace EntityStatsSystem
 
         #region Player Status Methods
         public void SetCharacterStats(int health, ICustomDie attackDie, ICustomDie moveDie);
-
+        public void SetCharacterStats(CharacterClass playerClass,  ICustomDie attackDie, ICustomDie moveDie);
         public void Death();
         #endregion
 

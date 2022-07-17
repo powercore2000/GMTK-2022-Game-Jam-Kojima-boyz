@@ -15,11 +15,11 @@ namespace GameStateManager
         {
             _currentCharacterClass = cc;
         }
-
+        
         private void Update()
         {
             if (CurrentCharacterClass!= null)
-            Debug.Log(_currentCharacterClass.ClassName());
+            Debug.Log(_currentCharacterClass.ToString());
         }
 
         IEnumerator StartLoadingRoutine(int nextLevelIndex)

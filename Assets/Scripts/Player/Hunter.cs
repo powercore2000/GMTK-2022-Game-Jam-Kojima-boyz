@@ -22,7 +22,7 @@ namespace PlayerSystems
             Debug.Log("Hunter!");
         }
 
-        public Hunter() : base()
+        public Hunter(CharacterClassStats stats) : base(stats)
         {
         }
     }

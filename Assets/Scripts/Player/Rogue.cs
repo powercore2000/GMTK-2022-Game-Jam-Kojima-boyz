@@ -23,7 +23,7 @@ namespace PlayerSystems
         }
 
 
-        public Rogue() : base()
+        public Rogue(CharacterClassStats stats) : base(stats)
         {
         }
     }
