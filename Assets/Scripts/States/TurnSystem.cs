@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Core;
 using UnityEngine;
+using EntityStatsSystem;
 
 namespace States
 {
@@ -9,26 +10,38 @@ namespace States
     public class TurnSystem:MonoBehaviour
     {
         private State _currentState;
-        private List<Enemy> _enemies;
+        private Enemy _enemy;
         private Player _player;
         public Player Player => _player;
-        public List<Enemy> Enemies => _enemies;
-        
+        public Enemy CurrentEnemy => _enemy;
+
+        [field: SerializeField]
+        public PlayerStats PlayerStats { get; private set; }
+        [field: SerializeField]
+        public EnemyStats EnemyStats { get; private set; }
+
         private void Awake()
         {
-            // find player
-            
-            // find enemies
-            
-            
+
+
         }
 
-        
+        public void GetPlayer(PlayerStats player) {
+
+            PlayerStats = player;
+        }
+
+        public void GetEnemy(EnemyStats enemy) {
+
+            EnemyStats = enemy;
+        }
+
         private void Start()
         {
             SetState(new BeginState(this));
+            _currentState.Start();
+            Debug.Log("Current state " + _currentState.GetType());
         }
-
        
         public void Attack()
         {
@@ -45,6 +58,17 @@ namespace States
         {
             _currentState = state;
         }
+
+
+        public void HandleAttack(IEntity attacker, IEntity defender) {
+
+            Debug.Log($"{attacker.EntityName} hurting {defender.EntityName}!");
+        
+        }
+
+
+
+
     }
 }
 

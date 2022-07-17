@@ -1,5 +1,5 @@
 {
-    "name": "PlayerSystemAssembly",
+    "name": "EntitySystemAssembly",
     "rootNamespace": "",
     "references": [
         "GUID:9683c463b32a4794d9ee4e579da357c5"
