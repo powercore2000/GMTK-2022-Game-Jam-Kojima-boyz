@@ -17,9 +17,7 @@ namespace Core
             InitialRoll();
         }
         
-       
         
-
         // Update is called once per frame
         void InitialRoll()
         {

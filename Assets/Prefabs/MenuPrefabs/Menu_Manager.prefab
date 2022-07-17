@@ -1978,6 +1978,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OptionsMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 2070317133234151983, guid: 0ef970e11b44d474ba3df3a364f722f5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2624555321751711822, guid: 0ef970e11b44d474ba3df3a364f722f5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -1986,6 +1990,10 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1931497082815579400}
+    - target: {fileID: 5517619615930629654, guid: 0ef970e11b44d474ba3df3a364f722f5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ef970e11b44d474ba3df3a364f722f5, type: 3}
 --- !u!224 &4944575734989989400 stripped

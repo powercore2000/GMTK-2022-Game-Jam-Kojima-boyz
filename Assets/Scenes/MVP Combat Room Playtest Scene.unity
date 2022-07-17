@@ -799,8 +799,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1539570891}
-        m_TargetAssemblyTypeName: TurnSystem.TurnSystem, TurnSystem
-        m_MethodName: Heal
+        m_TargetAssemblyTypeName: States.TurnSystem, TurnSyste,
+        m_MethodName: Ability
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
