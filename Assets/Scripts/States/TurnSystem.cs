@@ -50,11 +50,6 @@ namespace States
             _currentState.Attack();
         }
 
-        public void Ability()
-        {
-            
-        }
-        
         public void Heal()
         {
             _currentState.Heal();
