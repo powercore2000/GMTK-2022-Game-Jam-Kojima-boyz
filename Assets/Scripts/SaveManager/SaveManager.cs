@@ -15,9 +15,12 @@ public class SaveManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
+        if (Input.GetKeyDown(KeyCode.S))
         {
             SavePlayerClass();
+            SavePlayerHealth();
+            SaveRoom();
+            SavePlayerHealth();
             Debug.Log(GetClassValue());
         }
         
