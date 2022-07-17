@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using GameSystem;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
@@ -25,7 +26,7 @@ public class MenuManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(1); // Start scene
+       GameStateManager.LoadNextLevel(); // Start scene
     }
     public void LoadScene()
     {
@@ -33,8 +34,7 @@ public class MenuManager : MonoBehaviour
     }
     public void LoadNextScene()
     {
-        int currentScene = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentScene + 1);
+        GameStateManager.LoadNextLevel();
     }
     public void SaveScene()
     {

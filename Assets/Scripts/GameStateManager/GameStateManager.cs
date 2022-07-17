@@ -40,7 +40,6 @@ namespace GameSystem
                 Debug.LogWarning("invalid scene index");
             }
         }
-
         public static void ReloadLevel()
         {
             LoadLevel(SceneManager.GetActiveScene().name);
