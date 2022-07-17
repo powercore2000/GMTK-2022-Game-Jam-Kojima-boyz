@@ -2,7 +2,8 @@
     "name": "EntitySystemAssembly",
     "rootNamespace": "",
     "references": [
-        "GUID:9683c463b32a4794d9ee4e579da357c5"
+        "GUID:9683c463b32a4794d9ee4e579da357c5",
+        "GUID:9bb5f0ea4ce57724bae50388496887f7"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -500,7 +500,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ability
+  m_text: 'Heal
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -751,7 +753,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 179, y: -149.6}
+  m_AnchoredPosition: {x: 159, y: -149.6}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1010286519
@@ -799,8 +801,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1539570891}
-        m_TargetAssemblyTypeName: States.TurnSystem, TurnSyste,
-        m_MethodName: Ability
+        m_TargetAssemblyTypeName: States.TurnSystem, States
+        m_MethodName: HandleAbility
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1450,6 +1452,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcaae2f6127fbd44e9405b69cd362e4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <PlayerStats>k__BackingField:
+    <EntityName>k__BackingField: 
+    <Health>k__BackingField: 0
+    <MaxHealth>k__BackingField: 0
+    <IsDead>k__BackingField: 0
+    <CurrentMovementPoints>k__BackingField: 0
+    <TotalMovementPoints>k__BackingField: 0
+    <HasMoved>k__BackingField: 0
+    <HasAttacked>k__BackingField: 0
+  <EnemyStats>k__BackingField:
+    <EntityName>k__BackingField: 
+    <Health>k__BackingField: 0
+    <MaxHealth>k__BackingField: 0
+    <IsDead>k__BackingField: 0
+    <CurrentMovementPoints>k__BackingField: 0
+    <TotalMovementPoints>k__BackingField: 0
+    <HasMoved>k__BackingField: 0
+    <HasAttacked>k__BackingField: 0
 --- !u!1 &1568458940
 GameObject:
   m_ObjectHideFlags: 0
@@ -1599,7 +1619,7 @@ GameObject:
   - component: {fileID: 1599688061}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Player
+namespace PlayerSystems
 {
     public class PlayerRanged : Core.Player
     {

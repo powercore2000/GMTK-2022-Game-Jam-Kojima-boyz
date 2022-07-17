@@ -39,6 +39,15 @@ namespace States
            
         }
 
+        public override void Ability()
+        {
+            _turnSystem.PlayerStats.PlayerClass.Ability();
+
+            // check conditions of game
+
+
+        }
+
         public async void Wait()
         {
             await Waiting();
