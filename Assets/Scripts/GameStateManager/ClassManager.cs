@@ -1,11 +1,10 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using PlayerSystems;
 using UnityEngine;
 using UnityEngine.Events;
-using PlayerSystems;
 
-namespace GameSystem
+namespace GameStateManager
 {
     public class ClassManager : MonoBehaviour
     {

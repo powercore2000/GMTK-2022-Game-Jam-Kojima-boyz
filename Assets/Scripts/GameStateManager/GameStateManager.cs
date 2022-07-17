@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace GameSystem
+namespace GameStateManager
 {
-    
-    public static class GameStateManager 
+    public class GameStateManager: MonoBehaviour
     {
         public static CharacterClass CurrentCharacterClass { get; private set; }
         public static void AssignCharacterClass(CharacterClass cc) {
