@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -8,14 +7,25 @@ namespace GameStateManager
 {
     public class GameStateManager: MonoBehaviour
     {
-        public static CharacterClass CurrentCharacterClass { get; private set; }
-        public static void AssignCharacterClass(CharacterClass cc) {
-            CurrentCharacterClass = cc;
+
+        [SerializeField]  SaveCharacterClass _currentCharacterClass;
+        
+        public  SaveCharacterClass CurrentCharacterClass => _currentCharacterClass;
+        public  void AssignCharacterClass(CharacterClass cc) {
+            _currentCharacterClass.ClassName = cc.ClassName;
+            _currentCharacterClass.OnFailure = cc.OnFailure;
+            _currentCharacterClass.OnSucess = cc.OnSucess;
+           
+        }
+
+        private void Update()
+        {
+            Debug.Log(CurrentCharacterClass);
         }
 
         IEnumerator StartLoadingRoutine(int nextLevelIndex)
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
             LoadLevel(nextLevelIndex);
         }
         public  void LoadNextLevel()
@@ -34,7 +44,7 @@ namespace GameStateManager
             }
         }
 
-        public static void LoadLevel(int levelIndex)
+        public  void LoadLevel(int levelIndex)
         {
             if (levelIndex >= 0 && SceneManager.sceneCountInBuildSettings > levelIndex)
             {
@@ -45,7 +55,7 @@ namespace GameStateManager
                 Debug.LogWarning("invalid scene index");
             }
         }
-        public static void ReloadLevel()
+        public  void ReloadLevel()
         {
             LoadLevel(SceneManager.GetActiveScene().name);
         }
