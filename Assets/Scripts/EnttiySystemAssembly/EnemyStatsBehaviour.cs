@@ -4,6 +4,7 @@ using DiceSystem;
 using EntityStatsSystem;
 using UnityEngine;
 
+
 public class EnemyStatsBehaviour : MonoBehaviour
 {
 
@@ -24,7 +25,7 @@ public class EnemyStatsBehaviour : MonoBehaviour
 
 }
 
-
+[System.Serializable]
 public class EnemyStats : IEntity
 {
     #region Property Fields

@@ -24,7 +24,7 @@ namespace Core
         void InitialRoll()
         {
             rollResult = diceScript.RollResult();
-            Debug.Log(rollResult);
+           // Debug.Log(rollResult);
 
             SpawnEnemiesDependingOnRollResults();
         }
@@ -33,12 +33,12 @@ namespace Core
             if(rollResult >= 3)
             {
                 _enemyType = Type.Ranged;
-                Debug.Log("Spawn ranged");
+            //    Debug.Log("Spawn ranged");
             }
             else if(rollResult <= 3)
             {
                 _enemyType = Type.Melee;
-                Debug.Log("Spawn melees");
+              //  Debug.Log("Spawn melees");
             }
         }
     }

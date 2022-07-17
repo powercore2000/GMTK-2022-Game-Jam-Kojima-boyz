@@ -7,7 +7,7 @@ namespace States
 {
     
 
-    public class TurnSystem:MonoBehaviour
+    public class TurnSystem: MonoBehaviour
     {
         private State _currentState;
         private Enemy _enemy;
@@ -15,15 +15,15 @@ namespace States
         public Player Player => _player;
         public Enemy CurrentEnemy => _enemy;
 
-        [field: SerializeField]
+        //[field: SerializeField]
         public PlayerStats PlayerStats { get; private set; }
-        [field: SerializeField]
+       // [field: SerializeField]
         public EnemyStats EnemyStats { get; private set; }
 
         private void Awake()
         {
-
-
+          
+          
         }
 
         public void GetPlayer(PlayerStats player) {
@@ -38,9 +38,11 @@ namespace States
 
         private void Start()
         {
+            var player = FindObjectOfType<PlayerStatsBehaviour>();
+           PlayerStats = player.PlayerStatsInstance;
+           EnemyStats = FindObjectOfType<EnemyStatsBehaviour>().EntityStatsInstance;
+              //Debug.Log(player);
             SetState(new BeginState(this));
-            _currentState.Start();
-            Debug.Log("Current state " + _currentState.GetType());
         }
        
         public void Attack()
@@ -57,6 +59,7 @@ namespace States
         public void SetState(State state)
         {
             _currentState = state;
+            _currentState.Start();
         }
 
 

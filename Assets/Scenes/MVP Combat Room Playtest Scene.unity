@@ -500,7 +500,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Heal
+  m_text: 'Ability
 
 '
   m_isRightToLeft: 0
@@ -1199,6 +1199,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1449078036}
   - component: {fileID: 1449078035}
+  - component: {fileID: 1449078037}
   m_Layer: 0
   m_Name: Enemies
   m_TagString: Untagged
@@ -1233,6 +1234,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1449078037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449078034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e7eebdfb0a3dc04aae14175c4056d91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <EntityStatsInstance>k__BackingField:
+    <EntityName>k__BackingField: 
+    <Health>k__BackingField: 0
+    <MaxHealth>k__BackingField: 0
+    <IsDead>k__BackingField: 0
+    <CurrentMovementPoints>k__BackingField: 0
+    <TotalMovementPoints>k__BackingField: 0
+    <HasMoved>k__BackingField: 0
+    <HasAttacked>k__BackingField: 0
 --- !u!1 &1526684533
 GameObject:
   m_ObjectHideFlags: 0
@@ -1523,6 +1545,7 @@ GameObject:
   - component: {fileID: 1599688059}
   - component: {fileID: 1599688058}
   - component: {fileID: 1599688057}
+  - component: {fileID: 1599688061}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1622,6 +1645,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1599688061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599688056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87df3cac32b555f4195288161eeb2da8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <PlayerStatsInstance>k__BackingField:
+    <EntityName>k__BackingField: 
+    <Health>k__BackingField: 0
+    <MaxHealth>k__BackingField: 0
+    <IsDead>k__BackingField: 0
+    <CurrentMovementPoints>k__BackingField: 0
+    <TotalMovementPoints>k__BackingField: 0
+    <HasMoved>k__BackingField: 0
+    <HasAttacked>k__BackingField: 0
 --- !u!1 &1678288999
 GameObject:
   m_ObjectHideFlags: 0

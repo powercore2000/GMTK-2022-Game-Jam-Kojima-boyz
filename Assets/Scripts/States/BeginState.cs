@@ -9,6 +9,7 @@ namespace States
         {
             // do some stuff before battle starts                      
             //_turnSystem.SetState(new PlayerTurn(_turnSystem));
+          
             Debug.Log("Contrsuctor");
         }
 

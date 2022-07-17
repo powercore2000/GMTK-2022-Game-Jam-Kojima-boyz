@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace States
 {
@@ -6,18 +7,19 @@ namespace States
     {
         public EnemyTurn(TurnSystem system) : base(system)
         {
-            
+            Start();
         }
 
         public override void Start()
         {
-            throw new NotImplementedException();
+           
+            Attack();
         }
 
         public override void Attack()
         {
-            
-            throw new NotImplementedException();
+            _turnSystem.HandleAttack(_turnSystem.EnemyStats,_turnSystem.PlayerStats);
+            _turnSystem.SetState(new PlayerTurn(_turnSystem));
         }
 
         public override void Heal()

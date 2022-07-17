@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace States
 {
@@ -19,11 +20,12 @@ namespace States
         public override void Attack()
         {
             _turnSystem.HandleAttack(_turnSystem.PlayerStats, _turnSystem.EnemyStats);
+            _turnSystem.SetState(new EnemyTurn(_turnSystem));
         }
 
         public override void Heal()
         {
-            throw new NotImplementedException();
+            Debug.Log("Player heals");
         }
 
         public override void Move()
