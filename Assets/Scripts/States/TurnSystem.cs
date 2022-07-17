@@ -2,11 +2,11 @@ using System.Collections.Generic;
 using Core;
 using UnityEngine;
 using EntityStatsSystem;
+using PlayerSystems;
 
 namespace States
 {
-    
-
+   
     public class TurnSystem: MonoBehaviour
     {
         private State _currentState;
@@ -59,7 +59,12 @@ namespace States
         {
             _currentState.Heal();
         }
-        
+
+        public void HandleAbility()
+        {
+            _currentState.Ability();
+        }
+
 
         public void SetState(State state)
         {

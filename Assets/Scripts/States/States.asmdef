@@ -1,8 +1,9 @@
 {
-    "name": "TurnSyste,",
+    "name": "States",
     "rootNamespace": "",
     "references": [
         "GUID:4c4316ccefcfcb046a2b536945a5c8c8",
+        "GUID:9bb5f0ea4ce57724bae50388496887f7",
         "GUID:01fabc988273fb24ba682f8de1b65eed"
     ],
     "includePlatforms": [],

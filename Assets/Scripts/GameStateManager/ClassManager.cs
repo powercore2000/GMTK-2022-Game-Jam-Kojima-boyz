@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using PlayerSystems;
 
 namespace GameSystem
 {
@@ -10,7 +11,7 @@ namespace GameSystem
     {
 
         [SerializeField]
-        List<CharacterClass> characterClasses = new List<CharacterClass>();
+        List<ICharacterClass> characterClasses = new List<ICharacterClass>();
 
         [SerializeField]
         Transform classList;
@@ -22,6 +23,7 @@ namespace GameSystem
 
         private void Start()
         {
+            characterClasses.Add(new WarriorClass());
             ReloadList();
         }
         public void AssignPlayerClass(int classID) {
@@ -37,6 +39,7 @@ namespace GameSystem
                     break;
             
             }
+            //Add this data to a game mamager to be used in other scenes
             OnClassSelected.Invoke();
         }
 
