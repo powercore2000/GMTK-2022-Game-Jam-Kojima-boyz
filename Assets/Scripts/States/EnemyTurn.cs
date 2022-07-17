@@ -40,5 +40,10 @@ namespace States
         {
             _turnSystem.SetState(new PlayerTurn(_turnSystem));
         }
+
+        public override void Ability()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

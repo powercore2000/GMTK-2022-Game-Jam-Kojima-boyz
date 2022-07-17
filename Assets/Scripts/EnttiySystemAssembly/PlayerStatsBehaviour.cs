@@ -1,5 +1,6 @@
 using DiceSystem;
 using UnityEngine;
+using PlayerSystems;
 
 namespace EntityStatsSystem
 {
@@ -9,6 +10,7 @@ namespace EntityStatsSystem
         #region Property Fields
         [field: SerializeField]
         public PlayerStats PlayerStatsInstance { get; private set; }
+        
         #endregion
 
         #region Monobehaviour Methods
@@ -16,6 +18,7 @@ namespace EntityStatsSystem
         private void Awake()
         {
             PlayerStatsInstance = new PlayerStats();
+
             PlayerStatsInstance.SetCharacterStats(10, new D6_Dice(), new D6_Dice());
 
            
@@ -35,6 +38,8 @@ namespace EntityStatsSystem
 
         [field: SerializeField]
         public string EntityName { get; private set; }
+
+        public ICharacterClass PlayerClass { get; private set; }
 
         [field: SerializeField]
         public int Health { get; private set; }
@@ -63,6 +68,9 @@ namespace EntityStatsSystem
         #region Player Status Methods
         public void SetCharacterStats(int health, ICustomDie attackDie, ICustomDie moveDie)
         {
+            //TODO: Change this to a system where gamestate assigns the Player a class based on their choice earlier in the level
+            PlayerClass = new WarriorClass();
+
             EntityName = "Player";
             MaxHealth = health;
             Health = MaxHealth;

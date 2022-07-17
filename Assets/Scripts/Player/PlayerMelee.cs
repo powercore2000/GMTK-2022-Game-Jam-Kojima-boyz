@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Player
+namespace PlayerSystems
 {
     public class PlayerMelee : Core.Player
     {
