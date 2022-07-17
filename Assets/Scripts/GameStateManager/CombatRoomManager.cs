@@ -28,8 +28,14 @@ namespace GameStateManager
 
                 players.Add(prefabNames[a], playerPrefabs[a]);
             }
-            string className = "Elf";
+            string className = "";
 
+            try { className = GameStateManager.CurrentCharacterClass.ClassName(); }
+            catch{
+
+                Debug.Log("Defaulting!");
+                className = "Warlock";
+            }
 
             Instantiate(players[className], playerSpawnPoint.position, Quaternion.identity, playerSpawnPoint);
         }

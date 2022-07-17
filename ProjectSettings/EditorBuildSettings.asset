@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Character Select.unity
     guid: 10699c1ca45f36144a97f4f032bf864e
   - enabled: 1
-    path: Assets/Scenes/MVP Combat Room Playtest Scene.unity
-    guid: 61834da1356e04440ae056fc66d378ac
+    path: Assets/Scenes/Combat Scene.unity
+    guid: 8e7659f9bbaa6f5468680c399ba5ee38
   m_configObjects: {}
