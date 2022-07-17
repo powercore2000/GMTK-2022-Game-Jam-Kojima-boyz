@@ -19,7 +19,8 @@ namespace GameStateManager
 
         UnityEvent OnClassSelected;
         CharacterClass TestClass = new CharacterClass("test");
-
+        [SerializeField] private GameStateManager _gameStateManager;
+        
         private void Start()
         {
             characterClasses.Add(new WarriorClass());
@@ -29,7 +30,7 @@ namespace GameStateManager
             switch (classID) {
                 case 0:
                     {
-                        GameStateManager.AssignCharacterClass(TestClass);
+                        _gameStateManager.AssignCharacterClass(TestClass);
                     }
                     break;
             }
@@ -37,7 +38,7 @@ namespace GameStateManager
             OnClassSelected.Invoke();
         }
         public void Msg() {
-            Debug.Log($"current class is {GameStateManager.CurrentCharacterClass.ClassName}");
+            Debug.Log($"current class is {_gameStateManager.CurrentCharacterClass.ClassName}");
         }
 
         void ReloadList() {
@@ -56,22 +57,25 @@ namespace GameStateManager
 
         void LoadList() {
 
-            foreach (CharacterClass cc in characterClasses)
+            foreach (var cc in characterClasses)
             {
-
-               GameObject classElement = Instantiate(classDisplayElement, classList);
+                GameObject classElement = Instantiate(classDisplayElement, classList);
                 classElement.GetComponent<CharacterClassElement>().SetValues(cc);
             }
 
         }
 
     }
+    
+    
 
     [System.Serializable]
-    public class CharacterClass
+    public class CharacterClass 
     {
         [field: SerializeField]
         public string ClassName { get; private set; }
+        
+      
         public Action OnFailure;
         public Action OnSucess;
 
@@ -79,6 +83,8 @@ namespace GameStateManager
 
             ClassName = nme;
         }
+        
+
 
     }
 }

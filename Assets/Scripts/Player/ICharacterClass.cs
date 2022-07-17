@@ -11,5 +11,6 @@ namespace PlayerSystems
         public void Ability();
 
         public void CriticleFailure();
+      
     }
 }
