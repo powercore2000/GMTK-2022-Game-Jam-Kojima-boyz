@@ -16,8 +16,9 @@ namespace States
 
         public override void Attack()
         {
-            
-            throw new NotImplementedException();
+
+            _turnSystem.HandleAttack(_turnSystem.EnemyStats, _turnSystem.PlayerStats);
+            End();
         }
 
         public override void Heal()
@@ -37,7 +38,7 @@ namespace States
 
         public override void End()
         {
-            throw new NotImplementedException();
+            _turnSystem.SetState(new EnemyTurn(_turnSystem));
         }
     }
 }
