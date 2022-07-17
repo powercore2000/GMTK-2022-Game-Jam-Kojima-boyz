@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DiceSystem;
 using EntityStatsSystem;
+using GameStateManager;
 using UnityEngine;
 
 
@@ -63,6 +64,11 @@ public class EnemyStats : IEntity
         AttackDie = attackDie;
         MovementDie = moveDie;
 
+    }
+
+    public void SetCharacterStats(CharacterClass playerClass, ICustomDie attackDie, ICustomDie moveDie)
+    {
+        throw new System.NotImplementedException();
     }
 
     public void Death()

@@ -5,7 +5,8 @@
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
         "DiceSystemAssembly",
-        "EntitySystemAssembly"
+        "EntitySystemAssembly",
+        "Player"
     ],
     "includePlatforms": [
         "Editor"

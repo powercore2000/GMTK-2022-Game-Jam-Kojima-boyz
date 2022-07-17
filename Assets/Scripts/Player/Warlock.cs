@@ -21,7 +21,7 @@ namespace PlayerSystems
             Debug.Log("Warlock!");
         }
 
-        public Warlock() : base()
+        public Warlock(CharacterClassStats stats) : base(stats)
         {
         }
     }

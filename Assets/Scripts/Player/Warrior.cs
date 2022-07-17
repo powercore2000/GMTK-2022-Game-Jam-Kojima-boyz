@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using GameStateManager;
+using UnityEditor;
 using UnityEngine;
 
 namespace PlayerSystems
@@ -25,8 +26,10 @@ namespace PlayerSystems
             Debug.Log("Warrior!");
         }
         
-        public Warrior() : base()
+        public Warrior(CharacterClassStats stats) : base(stats)
         {
+           
         }
+        
     }
 }

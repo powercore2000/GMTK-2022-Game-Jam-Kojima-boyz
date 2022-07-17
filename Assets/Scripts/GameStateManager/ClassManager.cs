@@ -15,13 +15,17 @@ namespace GameStateManager
 
         UnityEvent OnClassSelected;
         [SerializeField] private GameStateManager _gameStateManager;
-
+        [SerializeField] private CharacterClassStats _warriorClassStats;
+        [SerializeField] private CharacterClassStats _rogueClassStats;
+        
+        [SerializeField] private CharacterClassStats _warloclClassStats;
+        [SerializeField] private CharacterClassStats _hunterClassStats;
         private void Start()
         {
-            characterClasses.Add(new Warrior());
-            characterClasses.Add(new Rogue());
-            characterClasses.Add(new Warlock());
-            characterClasses.Add(new Hunter());
+            characterClasses.Add(new Warrior(_warriorClassStats));
+            characterClasses.Add(new Rogue(_rogueClassStats));
+            characterClasses.Add(new Warlock(_warloclClassStats));
+            characterClasses.Add(new Hunter(_hunterClassStats));
         }
 
         public void AssignPlayerClass(int classID)

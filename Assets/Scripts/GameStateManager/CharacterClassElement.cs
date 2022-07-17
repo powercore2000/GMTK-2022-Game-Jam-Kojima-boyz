@@ -18,8 +18,8 @@ namespace GameStateManager
         TMP_Text text;
         [SerializeField]
         Image image;
-        public CharacterClassEvent SaveCharacter;
-        
+
+      
         private void Awake()
         {
             

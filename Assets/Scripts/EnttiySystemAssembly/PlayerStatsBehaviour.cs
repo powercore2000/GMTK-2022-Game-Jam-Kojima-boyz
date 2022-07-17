@@ -6,7 +6,8 @@ using PlayerSystems;
 namespace EntityStatsSystem
 {
     //Monohebehaviour acessor for PlayerStats script
-    public class PlayerStatsBehaviour : MonoBehaviour {
+    public class PlayerStatsBehaviour : MonoBehaviour
+    {
 
         #region Property Fields
         [field: SerializeField]
@@ -19,10 +20,8 @@ namespace EntityStatsSystem
         private void Awake()
         {
             PlayerStatsInstance = new PlayerStats();
-
-            PlayerStatsInstance.SetCharacterStats(10, new D6_Dice(), new D6_Dice());
-
-           
+            var playerChoosenClass = GameStateManager.GameStateManager.CurrentCharacterClass;
+            PlayerStatsInstance.SetCharacterStats(playerChoosenClass, new D6_Dice(), new D6_Dice());
         }
 
 
@@ -35,6 +34,11 @@ namespace EntityStatsSystem
     [System.Serializable]
     public class PlayerStats : IEntity
     {
+        [field: SerializeField]
+        public int ExtraDamage{ get; private set; }
+        [field: SerializeField]
+        public int DefaultDamage{ get; private set; }
+
         #region Property Fields
 
         [field: SerializeField]
@@ -67,18 +71,28 @@ namespace EntityStatsSystem
         #endregion
 
         #region Player Status Methods
+
         public void SetCharacterStats(int health, ICustomDie attackDie, ICustomDie moveDie)
         {
-            //TODO: Change this to a system where gamestate assigns the Player a class based on their choice earlier in the level
-            PlayerClass = new Rogue();
+            throw new System.NotImplementedException();
+        }
 
+        public void SetCharacterStats(CharacterClass playerClass, ICustomDie attackDie, ICustomDie moveDie)
+        {
+            //TODO: Change this to a system where gamestate assigns the Player a class based on their choice earlier in the level
+            PlayerClass = playerClass;
+            
             EntityName = "Player";
-            MaxHealth = health;
+            MaxHealth = playerClass.CharacterStats.health;
             Health = MaxHealth;
+            DefaultDamage = playerClass.CharacterStats.defaultDamage;
+            ExtraDamage = playerClass.CharacterStats.extraDamage;
             AttackDie = attackDie;
             MovementDie = moveDie;
 
         }
+
+        
 
         public void Death()
         {
