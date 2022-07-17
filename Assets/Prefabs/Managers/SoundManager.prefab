@@ -48,6 +48,8 @@ MonoBehaviour:
   highPitch: 1.05
   musicVolume: 0.71
   fxVolume: 0.85
+  mainMenuIntro: {fileID: 8300000, guid: c79bf1460eda82f4ca54f6beca4acf2d, type: 3}
+  mainMenuLoop: {fileID: 8300000, guid: 57f634d763db27344a292f6b6e276473, type: 3}
   musicClips: []
   winClips: []
   loseClips: []

@@ -72,6 +72,7 @@ namespace States
         public void Heal()
         {
             _currentState.Heal();
+            CheckIfEntitiesLive();
         }
 
         public void HandleAbility()
