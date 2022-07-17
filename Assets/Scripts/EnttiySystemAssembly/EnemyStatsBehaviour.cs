@@ -24,7 +24,7 @@ public class EnemyStatsBehaviour : MonoBehaviour
 
 }
 
-
+[System.Serializable]
 public class EnemyStats : IEntity
 {
     #region Property Fields

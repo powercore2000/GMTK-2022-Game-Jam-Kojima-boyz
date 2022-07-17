@@ -1247,6 +1247,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e7eebdfb0a3dc04aae14175c4056d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <EntityStatsInstance>k__BackingField:
+    <EntityName>k__BackingField: 
+    <Health>k__BackingField: 0
+    <MaxHealth>k__BackingField: 0
+    <IsDead>k__BackingField: 0
+    <CurrentMovementPoints>k__BackingField: 0
+    <TotalMovementPoints>k__BackingField: 0
+    <HasMoved>k__BackingField: 0
+    <HasAttacked>k__BackingField: 0
 --- !u!212 &1449078038
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1444,6 +1453,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <PlayerStats>k__BackingField:
+    <EntityName>k__BackingField: 
+    <Health>k__BackingField: 0
+    <MaxHealth>k__BackingField: 0
+    <IsDead>k__BackingField: 0
+    <CurrentMovementPoints>k__BackingField: 0
+    <TotalMovementPoints>k__BackingField: 0
+    <HasMoved>k__BackingField: 0
+    <HasAttacked>k__BackingField: 0
+  <EnemyStats>k__BackingField:
     <EntityName>k__BackingField: 
     <Health>k__BackingField: 0
     <MaxHealth>k__BackingField: 0
