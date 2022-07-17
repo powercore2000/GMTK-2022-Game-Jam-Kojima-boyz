@@ -8,19 +8,18 @@ namespace GameStateManager
     public class GameStateManager: MonoBehaviour
     {
 
-        [SerializeField]  SaveCharacterClass _currentCharacterClass;
+        static  CharacterClass _currentCharacterClass;
         
-        public  SaveCharacterClass CurrentCharacterClass => _currentCharacterClass;
-        public  void AssignCharacterClass(CharacterClass cc) {
-            _currentCharacterClass.ClassName = cc.ClassName;
-            _currentCharacterClass.OnFailure = cc.OnFailure;
-            _currentCharacterClass.OnSucess = cc.OnSucess;
-           
+        public  static CharacterClass CurrentCharacterClass => _currentCharacterClass;
+        public static void AssignCharacterClass(CharacterClass cc)
+        {
+            _currentCharacterClass = cc;
         }
 
         private void Update()
         {
-            Debug.Log(CurrentCharacterClass);
+            if (CurrentCharacterClass!= null)
+            Debug.Log(_currentCharacterClass.ClassName());
         }
 
         IEnumerator StartLoadingRoutine(int nextLevelIndex)

@@ -1,21 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
+using GameStateManager;
 using UnityEngine;
 
 namespace PlayerSystems
 {
-    public class WarriorClass : ICharacterClass
+    public class Warrior : CharacterClass
     {
-        public string ClassName => "Warrior";
+        
 
         public void CriticleFailure()
         {
             throw new System.NotImplementedException();
         }
 
+        public override string ClassName()
+        {
+            return "Warlock";
+        }
+
+        
         public void Ability()
         {
             Debug.Log("Warrior!");
+        }
+        
+        public Warrior() : base()
+        {
         }
     }
 }

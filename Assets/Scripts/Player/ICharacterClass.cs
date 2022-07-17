@@ -7,7 +7,6 @@ namespace PlayerSystems
     public interface ICharacterClass
     {
         public string ClassName { get; }
-
         public void Ability();
 
         public void CriticleFailure();

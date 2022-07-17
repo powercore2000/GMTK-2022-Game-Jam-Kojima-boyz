@@ -1,4 +1,5 @@
 using DiceSystem;
+using GameStateManager;
 using UnityEngine;
 using PlayerSystems;
 
@@ -39,7 +40,7 @@ namespace EntityStatsSystem
         [field: SerializeField]
         public string EntityName { get; private set; }
 
-        public ICharacterClass PlayerClass { get; private set; }
+        public CharacterClass PlayerClass { get; private set; }
 
         [field: SerializeField]
         public int Health { get; private set; }
@@ -69,7 +70,7 @@ namespace EntityStatsSystem
         public void SetCharacterStats(int health, ICustomDie attackDie, ICustomDie moveDie)
         {
             //TODO: Change this to a system where gamestate assigns the Player a class based on their choice earlier in the level
-            PlayerClass = new WarriorClass();
+            PlayerClass = new Rogue();
 
             EntityName = "Player";
             MaxHealth = health;
