@@ -19,7 +19,7 @@ namespace States
         public override void Attack()
         {
             _turnSystem.HandleAttack(_turnSystem.EnemyStats,_turnSystem.PlayerStats);
-            _turnSystem.SetState(new PlayerTurn(_turnSystem));
+            End();
         }
 
         public override void Heal()
@@ -39,7 +39,7 @@ namespace States
 
         public override void End()
         {
-            throw new NotImplementedException();
+            _turnSystem.SetState(new PlayerTurn(_turnSystem));
         }
     }
 }

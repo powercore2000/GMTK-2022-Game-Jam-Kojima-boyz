@@ -47,12 +47,12 @@ namespace States
        
         public void Attack()
         {
-            _currentState.Attack();;
+            _currentState.Attack();
         }
 
         public void Heal()
         {
-            _currentState.Heal();;
+            _currentState.Heal();
         }
         
 

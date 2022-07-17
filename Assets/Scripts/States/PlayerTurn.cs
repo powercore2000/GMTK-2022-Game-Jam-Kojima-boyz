@@ -14,18 +14,22 @@ namespace States
 
         public override void Start()
         {
-          
+           
         }
 
         public override void Attack()
         {
             _turnSystem.HandleAttack(_turnSystem.PlayerStats, _turnSystem.EnemyStats);
             _turnSystem.SetState(new EnemyTurn(_turnSystem));
+            End();
+
         }
 
         public override void Heal()
         {
             Debug.Log("Player heals");
+            //Add a more relveant value later
+            _turnSystem.PlayerStats.Heal(2);
         }
 
         public override void Move()
@@ -34,7 +38,7 @@ namespace States
             
             // check conditions of game
             
-            _turnSystem.SetState(new EnemyTurn(_turnSystem));
+           
         }
 
         public async void Wait()
@@ -51,7 +55,7 @@ namespace States
         }
         public override void End()
         {
-            throw new NotImplementedException();
+            _turnSystem.SetState(new EnemyTurn(_turnSystem));
         }
     }
 }
