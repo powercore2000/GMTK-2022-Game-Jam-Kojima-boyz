@@ -4,8 +4,8 @@
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
-        "PlayerSystemAssembly",
-        "DiceSystemAssembly"
+        "DiceSystemAssembly",
+        "EntitySystemAssembly"
     ],
     "includePlatforms": [
         "Editor"

@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace States
 {
@@ -6,15 +7,14 @@ namespace States
     {
         public BeginState(TurnSystem system) : base(system)
         {
-            // do some stuff before battle starts
-            
-            
-            _turnSystem.SetState(new PlayerTurn(_turnSystem));
+            // do some stuff before battle starts                      
+            //_turnSystem.SetState(new PlayerTurn(_turnSystem));
+            Debug.Log("Contrsuctor");
         }
 
         public override void Start()
         {
-            throw new NotImplementedException();
+            _turnSystem.SetState(new PlayerTurn(_turnSystem));
         }
 
         public override void Attack()

@@ -6,4 +6,8 @@ namespace MovementNamespace
     {
         public abstract void Move(Vector2 newPos);
     }
+
+
+
+
 }

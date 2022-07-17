@@ -1,7 +1,7 @@
 using DiceSystem;
 using UnityEngine;
 
-namespace PlayerSystem
+namespace EntityStatsSystem
 {
     //Monohebehaviour acessor for PlayerStats script
     public class PlayerStatsBehaviour : MonoBehaviour {
@@ -17,7 +17,11 @@ namespace PlayerSystem
         {
             PlayerStatsInstance = new PlayerStats();
             PlayerStatsInstance.SetCharacterStats(10, new D6_Dice(), new D6_Dice());
+
+           
         }
+
+
         #endregion
 
 
@@ -25,11 +29,16 @@ namespace PlayerSystem
     }
 
     [System.Serializable]
-    public class PlayerStats
+    public class PlayerStats : IEntity
     {
         #region Property Fields
+
+        [field: SerializeField]
+        public string EntityName { get; private set; }
+
         [field: SerializeField]
         public int Health { get; private set; }
+
         [field: SerializeField]
         public int MaxHealth { get; private set; }
 
@@ -48,12 +57,13 @@ namespace PlayerSystem
         public bool HasMoved { get; private set; }
         [field: SerializeField]
         public bool HasAttacked { get; private set; }
+
         #endregion
 
         #region Player Status Methods
         public void SetCharacterStats(int health, ICustomDie attackDie, ICustomDie moveDie)
         {
-
+            EntityName = "Player";
             MaxHealth = health;
             Health = MaxHealth;
             AttackDie = attackDie;

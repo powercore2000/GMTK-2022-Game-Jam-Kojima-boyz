@@ -27,14 +27,11 @@ namespace States
 
         public override void Move()
         {
-            var enemies = _turnSystem.Enemies;
-            foreach (var enemy in enemies)
-            {
-                enemy.Move(_turnSystem.Player.transform.position);
-            }
+            var enemies = _turnSystem.CurrentEnemy;
+            enemies.Move(_turnSystem.Player.transform.position);
             // check conditions of game
-            
-            
+
+
             _turnSystem.SetState(new PlayerTurn(_turnSystem));
         }
 
