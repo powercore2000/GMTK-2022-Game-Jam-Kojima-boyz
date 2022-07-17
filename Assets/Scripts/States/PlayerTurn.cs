@@ -19,8 +19,10 @@ namespace States
 
         public override void Attack()
         {
-            _turnSystem.HandleAttack(_turnSystem.PlayerStats, _turnSystem.EnemyStats);
-            _turnSystem.SetState(new EnemyTurn(_turnSystem));
+            _turnSystem.HandleAttack(
+                _turnSystem.PlayerStats, _turnSystem.EnemyStats, 
+                delegate{ _turnSystem.SetState(new EnemyTurn(_turnSystem)); });
+            
         }
 
         public override void Heal()

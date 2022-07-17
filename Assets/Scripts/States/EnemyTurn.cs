@@ -17,8 +17,8 @@ namespace States
 
         public override void Attack()
         {
-            _turnSystem.HandleAttack(_turnSystem.EnemyStats,_turnSystem.PlayerStats);
-            End();
+            _turnSystem.HandleAttack(_turnSystem.EnemyStats,_turnSystem.PlayerStats, delegate { End(); });
+ 
         }
 
         public override void Heal()

@@ -26,15 +26,9 @@ public class EnemySpawn : MonoBehaviour
 
     void SpawnEnemy()
     {
-        int result = dice.RollResult() - 1;
+        int result = Random.Range(0, enemyPrefabs.Length); ;
         
 
-        if (result > 5)
-        {
-            Debug.Log(result);
-            result -= 2;
-        }
-        Debug.Log(result);
         Instantiate(enemyPrefabs[result], enemySpawnPoint.position, Quaternion.identity, enemySpawnPoint);
     }
 
