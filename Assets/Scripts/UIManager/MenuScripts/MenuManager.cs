@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
@@ -11,10 +11,11 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Slider audioSlider;
     [SerializeField] private GameStateManager.GameStateManager _gameStateManager;
 
-    public Scene savedScene;
+    private Scene savedScene;
     void Start()
     {
-        
+        SavedVolume();
+
     }
 
     // Update is called once per frame
@@ -25,7 +26,7 @@ public class MenuManager : MonoBehaviour
 
     public void StartGame()
     {
-        _gameStateManager.LoadNextLevel(); // Start scene
+        _gameStateManager.LoadNextLevel();
     }
     public void LoadScene()
     {
@@ -47,10 +48,22 @@ public class MenuManager : MonoBehaviour
     }
     public void ApplicationQuit()
     {
+        SaveVolume();
         Application.Quit();
     }
     public void SaveVolume()
     {
-        PlayerPrefs.SetFloat("SavedVolume", audioSlider.value);
+        AudioListener.volume = audioSlider.value;
+        audioSlider.value = AudioListener.volume;
+        PlayerPrefs.SetFloat("SavedVolume", AudioListener.volume);
+
+        Debug.Log("Saved volume");
+    }
+    public void SavedVolume()
+    {
+        audioSlider.value = PlayerPrefs.GetFloat("SavedVolume");
+
+        AudioListener.volume = audioSlider.value;
+        audioSlider.value = AudioListener.volume;
     }
 }
