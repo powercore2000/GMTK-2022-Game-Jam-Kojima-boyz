@@ -8,15 +8,12 @@ namespace GameSystem
     
     public static class GameStateManager 
     {
-        
-        
-        
         public static CharacterClass CurrentCharacterClass { get; private set; }
         public static void AssignCharacterClass(CharacterClass cc) {
             CurrentCharacterClass = cc;
         }
         
-        private static void LoadNextLevel()
+        public static void LoadNextLevel()
         {
             var currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
             var nextSceneIndex = ++currentSceneIndex;

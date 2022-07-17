@@ -27,32 +27,23 @@ namespace GameSystem
             ReloadList();
         }
         public void AssignPlayerClass(int classID) {
-
-
             switch (classID) {
-
                 case 0:
                     {
-
                         GameStateManager.AssignCharacterClass(TestClass);
                     }
                     break;
-            
             }
             //Add this data to a game mamager to be used in other scenes
             OnClassSelected.Invoke();
         }
-
         public void Msg() {
             Debug.Log($"current class is {GameStateManager.CurrentCharacterClass.ClassName}");
         }
 
         void ReloadList() {
-
             ClearList();
             LoadList();
-
-
         }
 
         void ClearList() {
