@@ -14,6 +14,8 @@
         public abstract void Heal();
         public abstract void Move();
         public abstract void End();
-        
+
+        public abstract void Ability();
+
     }
 }

@@ -33,5 +33,10 @@ namespace States
         {
             throw new NotImplementedException();
         }
+
+        public override void Ability()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
