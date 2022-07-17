@@ -7,7 +7,7 @@ namespace States
 {
     
 
-    public class TurnSystem:MonoBehaviour
+    public class TurnSystem: MonoBehaviour
     {
         private State _currentState;
         private Enemy _enemy;
@@ -45,12 +45,12 @@ namespace States
        
         public void Attack()
         {
-            _currentState.Attack();;
+            _currentState.Attack();
         }
 
         public void Heal()
         {
-            _currentState.Heal();;
+            _currentState.Heal();
         }
         
 
