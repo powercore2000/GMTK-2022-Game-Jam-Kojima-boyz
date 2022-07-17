@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <EntityStatsInstance>k__BackingField:
-    <EntityName>k__BackingField: Mimic
+    <EntityName>k__BackingField: Dragon
     <Health>k__BackingField: 10
     <MaxHealth>k__BackingField: 10
     <IsDead>k__BackingField: 0
