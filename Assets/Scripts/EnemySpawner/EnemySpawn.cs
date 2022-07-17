@@ -11,6 +11,7 @@ public class EnemySpawn : MonoBehaviour
     // Start is called before the first frame update
 
     [SerializeField] private SpriteRenderer background;
+    [SerializeField] private Transform enemySpawnPoint;
     [SerializeField] private Sprite[] backgroundSprites;
     [SerializeField] private GameObject[] enemyPrefabs;
     [SerializeField] private GameObject bossPrefab;
@@ -56,13 +57,13 @@ public class EnemySpawn : MonoBehaviour
             result -= 2;
         }
         Debug.Log(result);
-        Instantiate(enemyPrefabs[result], transform.position, Quaternion.identity);
+        Instantiate(enemyPrefabs[result], enemySpawnPoint.position, Quaternion.identity, enemySpawnPoint);
     }
 
     void SpawnBoss() // Use to spawn boss when a condition is met
     {
-        Vector3 bossPosition = new Vector3(3.95f, 0, 0);
-        Instantiate(bossPrefab, bossPosition, Quaternion.identity);
+
+        Instantiate(bossPrefab, enemySpawnPoint.position, Quaternion.identity, enemySpawnPoint);
     }
 
 }
