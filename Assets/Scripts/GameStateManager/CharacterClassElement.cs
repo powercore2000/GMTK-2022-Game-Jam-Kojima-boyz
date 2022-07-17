@@ -1,9 +1,8 @@
-﻿using System;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace GameSystem
+namespace GameStateManager
 {
     public class CharacterClassElement : MonoBehaviour
     {

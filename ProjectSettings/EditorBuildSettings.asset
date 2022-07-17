@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: a44259f2babf31242b856885479fd55f
   - enabled: 1
-    path: Assets/Scenes/Main.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Character Select.unity
+    guid: 10699c1ca45f36144a97f4f032bf864e
+  - enabled: 1
+    path: Assets/Scenes/MVP Combat Room Playtest Scene.unity
+    guid: 61834da1356e04440ae056fc66d378ac
   m_configObjects: {}

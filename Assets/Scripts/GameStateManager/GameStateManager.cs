@@ -1,27 +1,29 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace GameSystem
+namespace GameStateManager
 {
-    
-    public static class GameStateManager 
+    public class GameStateManager: MonoBehaviour
     {
-        
-        
-        
         public static CharacterClass CurrentCharacterClass { get; private set; }
         public static void AssignCharacterClass(CharacterClass cc) {
             CurrentCharacterClass = cc;
         }
-        
-        private static void LoadNextLevel()
+
+        IEnumerator StartLoadingRoutine(int nextLevelIndex)
+        {
+            yield return new WaitForSeconds(2f);
+            LoadLevel(nextLevelIndex);
+        }
+        public  void LoadNextLevel()
         {
             var currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
             var nextSceneIndex = ++currentSceneIndex;
             var totalSceneCount = SceneManager.sceneCountInBuildSettings;
-            LoadLevel(nextSceneIndex % totalSceneCount);
+            StartCoroutine(StartLoadingRoutine(nextSceneIndex % totalSceneCount));
         }
 
         public static void LoadLevel(string levelName)
@@ -43,11 +45,20 @@ namespace GameSystem
                 Debug.LogWarning("invalid scene index");
             }
         }
-
         public static void ReloadLevel()
         {
             LoadLevel(SceneManager.GetActiveScene().name);
         }
-        
+
+
+        public void Wait(float time)
+        {
+            StartCoroutine(WaitTimeRoutine( time));
+        }
+
+        private static IEnumerator WaitTimeRoutine(float time)
+        {
+            yield return new WaitForSeconds(time);
+        }
     }
 }

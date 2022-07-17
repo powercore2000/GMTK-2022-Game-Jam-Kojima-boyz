@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GameSystem
+namespace GameStateManager
 {
     [Serializable]
     public class CharacterClassB
