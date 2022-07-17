@@ -7,7 +7,6 @@ namespace States
     {
         public EnemyTurn(TurnSystem system) : base(system)
         {
-            Start();
         }
 
         public override void Start()

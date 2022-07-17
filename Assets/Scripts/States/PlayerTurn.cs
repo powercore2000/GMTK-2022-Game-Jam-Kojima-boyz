@@ -21,8 +21,6 @@ namespace States
         {
             _turnSystem.HandleAttack(_turnSystem.PlayerStats, _turnSystem.EnemyStats);
             _turnSystem.SetState(new EnemyTurn(_turnSystem));
-            End();
-
         }
 
         public override void Heal()
@@ -55,7 +53,6 @@ namespace States
         }
         public override void End()
         {
-            _turnSystem.SetState(new EnemyTurn(_turnSystem));
         }
     }
 }
