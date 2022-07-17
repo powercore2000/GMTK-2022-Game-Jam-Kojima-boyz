@@ -44,8 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 829f56c88a6c98b41b6a84ba952e2006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicVolume: 0
-  fxVolume: 0
+  lowPitch: 0.95
+  highPitch: 1.05
+  musicVolume: 0.71
+  fxVolume: 0.85
   musicClips: []
   winClips: []
   loseClips: []
@@ -61,5 +63,3 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3a8fd55b872420a42acf61cbe7454a44, type: 3}
   - {fileID: 8300000, guid: e9504abab33232547b891babccf33466, type: 3}
   - {fileID: 8300000, guid: 8c1927735de9b034a8598f7325edb1d8, type: 3}
-  lowPitch: 0.95
-  highPitch: 1.05

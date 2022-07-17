@@ -9,7 +9,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject optionsMenu;
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private Slider audioSlider;
-
+    [SerializeField] private GameStateManager.GameStateManager _gameStateManager;
 
     public Scene savedScene;
     void Start()
@@ -25,7 +25,7 @@ public class MenuManager : MonoBehaviour
 
     public void StartGame()
     {
-       GameStateManager.GameStateManager.LoadNextLevel(); // Start scene
+        _gameStateManager.LoadNextLevel(); // Start scene
     }
     public void LoadScene()
     {
@@ -33,7 +33,7 @@ public class MenuManager : MonoBehaviour
     }
     public void LoadNextScene()
     {
-        GameStateManager.GameStateManager.LoadNextLevel();
+        _gameStateManager.LoadNextLevel();
     }
     public void SaveScene()
     {

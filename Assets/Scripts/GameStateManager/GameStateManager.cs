@@ -1,3 +1,6 @@
+using System;
+using System.Collections;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,13 +12,18 @@ namespace GameStateManager
         public static void AssignCharacterClass(CharacterClass cc) {
             CurrentCharacterClass = cc;
         }
-        
-        public static void LoadNextLevel()
+
+        IEnumerator StartLoadingRoutine(int nextLevelIndex)
+        {
+            yield return new WaitForSeconds(2f);
+            LoadLevel(nextLevelIndex);
+        }
+        public  void LoadNextLevel()
         {
             var currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
             var nextSceneIndex = ++currentSceneIndex;
             var totalSceneCount = SceneManager.sceneCountInBuildSettings;
-            LoadLevel(nextSceneIndex % totalSceneCount);
+            StartCoroutine(StartLoadingRoutine(nextSceneIndex % totalSceneCount));
         }
 
         public static void LoadLevel(string levelName)
@@ -41,6 +49,16 @@ namespace GameStateManager
         {
             LoadLevel(SceneManager.GetActiveScene().name);
         }
-        
+
+
+        public void Wait(float time)
+        {
+            StartCoroutine(WaitTimeRoutine( time));
+        }
+
+        private static IEnumerator WaitTimeRoutine(float time)
+        {
+            yield return new WaitForSeconds(time);
+        }
     }
 }

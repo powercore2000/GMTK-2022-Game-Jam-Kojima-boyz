@@ -4,6 +4,9 @@ namespace GameStateManager
 {
     public class SoundManager : MonoBehaviour
     {
+        [Header("Tweaks for random FX Sound")]
+        public float lowPitch = 0.95f;
+        public float highPitch = 1.05f;
         [Range(0, 1)] public float musicVolume;
         [Range(0, 1)] public float fxVolume;
             
@@ -20,9 +23,7 @@ namespace GameStateManager
         [SerializeField] private AudioClip[] UISounds;
         
         
-        
-        public float lowPitch = 0.95f;
-        public float highPitch = 1.05f;
+       
 
         public void PlayGoodDiceResult()
         {
