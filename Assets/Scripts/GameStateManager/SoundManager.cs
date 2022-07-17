@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace GameStateManager
@@ -10,7 +11,12 @@ namespace GameStateManager
         [Range(0, 1)] public float musicVolume;
         [Range(0, 1)] public float fxVolume;
             
+        [Header("Main Menu Music")]
+        [SerializeField] private AudioClip mainMenuIntro;
+        [SerializeField] private AudioClip mainMenuLoop;
+        
         [Header("General Music")]
+       
         [SerializeField] private AudioClip[] musicClips;
         [SerializeField] private AudioClip[] winClips;
         [SerializeField] private AudioClip[] loseClips;
@@ -21,10 +27,24 @@ namespace GameStateManager
         [SerializeField] private AudioClip UnluckRoll;
         [Header("UI")]
         [SerializeField] private AudioClip[] UISounds;
-        
-        
-       
 
+
+        public void PlayMenuMusic()
+        {
+            StartCoroutine(PlayMusicRoutine());
+         
+        }
+
+        public IEnumerator PlayMusicRoutine()
+        {
+           var source =  PlayClipAtPoint(mainMenuIntro,Vector3.zero,1f,true,true);
+           while (source.isPlaying)
+           {
+               yield return null;
+           }
+           PlayClipAtPoint(mainMenuLoop,Vector3.zero,1f,false,false,true);
+           
+        }
         public void PlayGoodDiceResult()
         {
             PlayClipAtPoint(luckRoll, Vector3.zero);
@@ -58,13 +78,14 @@ namespace GameStateManager
             return null;
         }
         public AudioSource PlayClipAtPoint(AudioClip clip, Vector3 position, float volume = 1f, 
-            bool IsPitchRandomized = true, bool selfDestruct = true)
+            bool IsPitchRandomized = true, bool selfDestruct = true,bool loop = false)
         {
             if (clip != null)
             {
                 GameObject go = new GameObject("SoundFX" + clip.name);
                 go.transform.position = position;
                 AudioSource source = go.AddComponent<AudioSource>();
+                source.loop = loop;
                 source.clip = clip;
                 source.volume = volume;
                 source.Play();
