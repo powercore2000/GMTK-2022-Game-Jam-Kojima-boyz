@@ -38,19 +38,9 @@ namespace GameStateManager
 
         void SetBackground()
         {
-            int result = dice.RollResult();
-            if (result <= 2)
-            {
-                background.sprite = backgroundSprites[0];
-            }
-            else if (result <= 4)
-            {
-                background.sprite = backgroundSprites[1];
-            }
-            else
-            {
-                background.sprite = backgroundSprites[2];
-            }
+            int result = Random.Range(0, backgroundSprites.Length);
+            background.sprite = backgroundSprites[result];
+
         }
     }
 }
