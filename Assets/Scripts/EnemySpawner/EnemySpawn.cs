@@ -10,42 +10,20 @@ public class EnemySpawn : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    [SerializeField] private SpriteRenderer background;
+
     [SerializeField] private Transform enemySpawnPoint;
-    [SerializeField] private Sprite[] backgroundSprites;
+
     [SerializeField] private GameObject[] enemyPrefabs;
     [SerializeField] private GameObject bossPrefab;
 
     public D6_Dice dice = new D6_Dice();
-    void Start()
+    void Awake()
     {
-        SetBackground();
+
         SpawnEnemy();
     }
 
-    // Update is called once per 
-    private void OnEnable()
-    {
-        SetBackground();
 
-    }
-   
-    void SetBackground()
-    {
-        int result = dice.RollResult();
-        if(result <= 2)
-        {
-            background.sprite = backgroundSprites[0];
-        }
-        else if(result <= 4)
-        {
-            background.sprite = backgroundSprites[1];
-        }
-        else
-        {
-            background.sprite = backgroundSprites[2];
-        }
-    }
     void SpawnEnemy()
     {
         int result = dice.RollResult() - 1;

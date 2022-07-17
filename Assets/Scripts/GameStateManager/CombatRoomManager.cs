@@ -1,55 +1,56 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DiceSystem;
 
 namespace GameStateManager
 {
     public class CombatRoomManager : MonoBehaviour
     {
         [SerializeField]
-        List<GameObject> playersToSpawn = new List<GameObject>();
+        List<GameObject> playerPrefabs = new List <GameObject>();
+        [SerializeField]
+        List<string> prefabNames = new List<string>();
+        Dictionary<string,GameObject> players = new Dictionary<string,GameObject>();
 
         [SerializeField]
-        //[SerializeField]
+        Transform playerSpawnPoint;
 
+        [SerializeField] private SpriteRenderer background;
+        [SerializeField] private Sprite[] backgroundSprites;
+
+        public D6_Dice dice = new D6_Dice();
         // Start is called before the first frame update
-        void Start()
+        void Awake()
         {
-            string className = "";
+            SetBackground();
+            for (int a = 0; a < playerPrefabs.Count; a++) {
 
-            switch (className) {
-
-                case "Warrior":
-                    {
-
-                        //playersToSpawn[0];
-                    }
-                    break;
-
-                case "Hunter":
-                    {
-
-
-                    }
-                    break;
-
-                case "Theif":
-                    {
-
-
-                    }
-                    break;
-
-
+                players.Add(prefabNames[a], playerPrefabs[a]);
             }
+            string className = "Elf";
 
+
+            Instantiate(players[className], playerSpawnPoint.position, Quaternion.identity, playerSpawnPoint);
         }
 
-        // Update is called once per frame
-        void Update()
-        {
 
+
+        void SetBackground()
+        {
+            int result = dice.RollResult();
+            if (result <= 2)
+            {
+                background.sprite = backgroundSprites[0];
+            }
+            else if (result <= 4)
+            {
+                background.sprite = backgroundSprites[1];
+            }
+            else
+            {
+                background.sprite = backgroundSprites[2];
+            }
         }
     }
 }
