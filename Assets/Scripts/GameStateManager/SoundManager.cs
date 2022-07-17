@@ -37,12 +37,12 @@ namespace GameStateManager
 
         public IEnumerator PlayMusicRoutine()
         {
-           var source =  PlayClipAtPoint(mainMenuIntro,Vector3.zero,1f,true,true);
+           var source =  PlayClipAtPoint(mainMenuIntro,Vector3.zero,1f,true,true,false,true);
            while (source.isPlaying)
            {
                yield return null;
            }
-           PlayClipAtPoint(mainMenuLoop,Vector3.zero,1f,false,false,true);
+           PlayClipAtPoint(mainMenuLoop,Vector3.zero,1f,false,false,true,true);
            
         }
         public void PlayGoodDiceResult()
@@ -77,14 +77,19 @@ namespace GameStateManager
 
             return null;
         }
-        public AudioSource PlayClipAtPoint(AudioClip clip, Vector3 position, float volume = 1f, 
-            bool IsPitchRandomized = true, bool selfDestruct = true,bool loop = false)
+
+        public AudioSource PlayClipAtPoint(AudioClip clip, Vector3 position, float volume = 1f,
+            bool IsPitchRandomized = true, bool selfDestruct = true, bool loop = false, bool shouldSurviveNextTransition = false)
         {
             if (clip != null)
             {
                 GameObject go = new GameObject("SoundFX" + clip.name);
                 go.transform.position = position;
                 AudioSource source = go.AddComponent<AudioSource>();
+                if (shouldSurviveNextTransition)
+                {
+                    var dontDestroyOnLoad = go.AddComponent<DontDestroyOnLoad>();
+                }
                 source.loop = loop;
                 source.clip = clip;
                 source.volume = volume;
