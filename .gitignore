@@ -11,6 +11,7 @@
 /[Mm]emoryCaptures/
 [Uu]serSettings/
 /3rd Party Assets/
+/3rd Party/
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
 
