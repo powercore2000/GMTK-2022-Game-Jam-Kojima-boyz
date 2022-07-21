@@ -44,6 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd2c95b0439bc44caabe0de040a2167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterClasses: []
   classList: {fileID: 6951205295898047849, guid: 9a9fcd21ab4cb4d4fb5a52ddc2886765, type: 3}
   classDisplayElement: {fileID: 7435966100291837864, guid: 94641a33dc179704aad998a659e7452d, type: 3}
   _gameStateManager: {fileID: 7302684218819013615, guid: 704c7f227cd77bd45a9848d5988685f4, type: 3}
+  _warriorClassStats: {fileID: 11400000, guid: 2c60a2490e946924684e7e1632c4d0a0, type: 2}
+  _rogueClassStats: {fileID: 11400000, guid: c83180c97b13b5e4cbb4798e10c27ba9, type: 2}
+  _warloclClassStats: {fileID: 11400000, guid: af5f14f708e53dd4396dc1477bc41ae8, type: 2}
+  _hunterClassStats: {fileID: 11400000, guid: 9f2bcaacf73714644967219301bdf632, type: 2}
