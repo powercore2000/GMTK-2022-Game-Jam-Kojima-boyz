@@ -38,12 +38,11 @@ namespace GameStateManager
         public IEnumerator PlayMusicRoutine()
         {
            var source =  PlayClipAtPoint(mainMenuIntro,Vector3.zero,1f,true,true,false,true);
-           while (source.isPlaying)
+           while (source != null && source.isPlaying)
            {
                yield return null;
            }
-           PlayClipAtPoint(mainMenuLoop,Vector3.zero,1f,false,false,true,true);
-           
+           source = PlayClipAtPoint(mainMenuLoop,Vector3.zero,1f,false,false,true,true);
         }
         public void PlayGoodDiceResult()
         {
